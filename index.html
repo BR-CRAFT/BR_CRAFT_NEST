@@ -10,7 +10,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+font-family:'Poppins',sans-serif;
 -webkit-tap-highlight-color: transparent;
 }
 body{
@@ -22,9 +22,9 @@ background: linear-gradient(
 #240b36,
 #7b1fa2,
 #0f0c20
-);
-background-size:400% 400%;
-animation:gradientBG 10s ease infinite;
+) !important;
+background-size:400% 400% !important;
+animation:gradientBG 10s ease infinite !important;
 min-height:100vh;
 overflow-x: hidden;
 position: relative;
@@ -81,7 +81,7 @@ transform: translateX(50%) rotateZ(-45deg);
 100% { transform: translateX(-400px) translateY(400px) rotate(-45deg); opacity: 0; }
 }
 
-/* Touch Pulse Ripple Effect */
+/* Bright Touch Pulse Wave Effect */
 .touch-pulse {
 position: fixed;
 border: 2px solid #ff3366;
@@ -102,7 +102,7 @@ transform: translate(-50%, -50%) scale(1);
 }
 }
 
-/* Splash Screen Container */
+/* Splash Screen Layout */
 #splash {
 position: fixed;
 inset: 0;
@@ -120,7 +120,7 @@ padding: 20px;
 .splash-logo {
 font-size: 32px;
 font-weight: 800;
-color: #ffffff;
+color: #fff;
 letter-spacing: 2px;
 text-shadow: 0 0 12px #ff3366, 0 0 24px rgba(255, 51, 102, 0.5);
 animation: smoothFadePulse 2s ease-in-out infinite;
@@ -139,42 +139,45 @@ max-width: 300px;
 line-height: 1.5;
 }
 
-/* Header */
+/* Header (Logo-r sathe dynamic align kora holo) */
 .header{
 position:sticky;
 top:0;
 z-index:100;
-padding: 22px 15px;
-text-align:center;
-font-size:26px;
+padding: 12px 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px; /* Logo ebong lekhari bhetor chotto shundor gap */
+font-size:21px;
 font-weight:800;
 color:white;
 background: rgba(13, 7, 24, 0.9);
 backdrop-filter:blur(20px);
 -webkit-backdrop-filter:blur(20px);
-box-shadow:0 8px 32px rgba(0,0,0,0.4);
+box-shadow:0 6px 24px rgba(0,0,0,0.4);
 border-bottom: 2px solid rgba(255, 51, 102, 0.3);
 letter-spacing: 1px;
 }
-
-/* Pages Layout */
-.page{
-display:none;
+/* Logo Style Setup */
+.header-logo {
+width: 35px; /* Mobile screen-e chotto-par perfect size */
+height: 35px;
+border-radius: 50%; /* Logo tike shundor round circle shape dabe */
+object-fit: cover;
+box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
-.active{
-display:block;
-}
 
-/* Heavy Colorful Neon Boxes - SADA OUT, CLEAN THEME IN */
+/* Welcome Box Transparent Blending Mode */
 .welcome-box {
 margin: 25px 18px;
 padding: 30px 22px;
 border-radius: 24px;
-background: linear-gradient(135deg, #240b36 0%, #c31432 100%);
-border: 2px solid #ff3366;
+background: rgba(255, 255, 255, 0.05);
+border: 2px solid rgba(255, 51, 102, 0.4);
 text-align:center;
 color: white;
-box-shadow: 0 15px 35px rgba(255, 0, 85, 0.3);
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 .welcome-box h2{
 margin-bottom:15px;
@@ -215,14 +218,14 @@ color: white;
 }
 .product-card:active {
 transform: scale(0.95);
-background: linear-gradient(135deg, #7b1fa2 0%, #ff0055 100%); 
+background: linear-gradient(135deg, #7b1fa2 0%, #ff0055 100%) !important; 
 border-color: #ffb347;
 }
 .product-card i{
 font-size: 32px;
 margin-bottom: 14px;
 color: #ff9933;
-filter: drop-shadow(0 2px 8px rgba(255,153,51,0.5));
+filter: drop-shadow(0 2px 8px rgba(255,153,51,0.4));
 }
 .product-card h3{
 font-size:14px;
@@ -241,7 +244,7 @@ box-shadow: 0 4px 12px rgba(255,51,102,0.3);
 text-transform: uppercase;
 }
 
-/* About Layout with Extreme Fluid Color Spectrum */
+/* About Layout - Full Transparent Theme */
 .about{
 padding: 25px 18px;
 display: flex;
@@ -250,13 +253,12 @@ justify-content: center;
 min-height: calc(100vh - 220px);
 }
 .about-box{
-background: linear-gradient(135deg, #0f0c20 0%, #190f26 100%);
-border: 2px solid #7b1fa2;
-padding: 35px 25px;
-border-radius: 26px;
+background: transparent !important;
+border: none !important;
+padding: 15px 10px;
 color: white;
 text-align:center;
-box-shadow: 0 20px 45px rgba(123, 31, 162, 0.3);
+box-shadow: none !important;
 display: flex;
 flex-direction: column;
 position: relative;
@@ -289,7 +291,7 @@ margin:auto;
 width: 100%;
 }
 
-/* Follow Us Main Title */
+/* Follow Us Main Title Text */
 .main-follow-title {
 font-size: 20px;
 font-weight: 800;
@@ -307,7 +309,7 @@ color: #ffb347;
 font-weight: bold;
 text-transform: uppercase;
 letter-spacing: 1px;
-margin-bottom: 6px;
+margin-bottom: 4px;
 margin-top: 14px;
 height: 18px;
 display: flex;
@@ -373,19 +375,19 @@ animation: bounceIcon 0.6s infinite alternate;
 100% { transform: translateX(6px); }
 }
 
-/* Bottom Navigation Bar */
+/* Bottom Navigation Bar - FIXED BLACK PANEL */
 .bottom-nav{
 position:fixed;
 bottom:0;
 left:0;
 width:100%;
 height:80px;
-background: #0d0718;
+background: #0d0718 !important;
 display:flex;
 justify-content:space-around;
 align-items:center;
-box-shadow: 0 -10px 35px rgba(0,0,0,0.6);
-border-top: 2px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 -8px 32px rgba(0,0,0,0.5);
+border-top: 2px solid rgba(255, 255, 255, 0.08);
 z-index: 1000;
 }
 .nav-btn{
@@ -432,7 +434,8 @@ filter: drop-shadow(0 0 8px #ff3366);
 </div>
 
 <div class="header">
-✨ BR_CRAFT_NEST ✨
+<img src="logo.png.jpeg" alt="BR_CRAFT_NEST Logo" class="header-logo">
+<span>BR_CRAFT_NEST</span>
 </div>
 
 <div id="about" class="page active">
@@ -549,7 +552,7 @@ setTimeout(() => {
     }
 }, 2200);
 
-// Multipurpose Rotate Transitions for each button
+// Multipurpose Separate Async Transitions (2 Second Intervals & Staggered Delay)
 const fbPhrases = ["Follow Us", "Subscribe Us", "Follow Now on Facebook"];
 const instaPhrases = ["Follow Us", "See Our Crafts", "Follow Now on Instagram"];
 const threadsPhrases = ["Follow Us", "New Updates", "Join Us on Threads"];
