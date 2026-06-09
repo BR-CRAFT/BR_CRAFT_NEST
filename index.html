@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BR_CRAFT_NEST</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+-webkit-tap-highlight-color: transparent;
+}
+body{
+padding-bottom:120px;
+background: linear-gradient(
+-45deg,
+#0f0c20,
+#ff0055,
+#240b36,
+#7b1fa2,
+#0f0c20
+);
+background-size:400% 400%;
+animation:gradientBG 10s ease infinite;
+min-height:100vh;
+overflow-x: hidden;
+position: relative;
+}
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Premium Shooting Stars */
+.shooting-star-container {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+overflow: hidden;
+pointer-events: none;
+}
+.shooting-star {
+position: absolute;
+left: 50%;
+top: 50%;
+height: 2px;
+background: linear-gradient(-45deg, #ffffff, rgba(0, 0, 255, 0));
+border-radius: 999px;
+filter: drop-shadow(0 0 6px #ffffff);
+animation: tail 3000s ease-in-out infinite, shooting 3s ease-in-out infinite;
+}
+.shooting-star::before, .shooting-star::after {
+content: '';
+position: absolute;
+top: calc(50% - 1px);
+right: 0;
+height: 2px;
+background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #ffffff, rgba(0, 0, 255, 0));
+transform: translateX(50%) rotateZ(45deg);
+border-radius: 100%;
+animation: shining 3s ease-in-out infinite;
+}
+.shooting-star::after {
+transform: translateX(50%) rotateZ(-45deg);
+}
+.shooting-star:nth-child(1) { top: 15%; left: 40%; animation-delay: 0s; animation-duration: 3.5s; }
+.shooting-star:nth-child(2) { top: 30%; left: 80%; animation-delay: 1.2s; animation-duration: 4s; }
+.shooting-star:nth-child(3) { top: 60%; left: 20%; animation-delay: 0.5s; animation-duration: 3.2s; }
+
+@keyframes tail { 0% { width: 0; } 30% { width: 100px; } 100% { width: 0; } }
+@keyframes shining { 0% { width: 0; } 50% { width: 30px; } 100% { width: 0; } }
+@keyframes shooting {
+0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 1; }
+100% { transform: translateX(-400px) translateY(400px) rotate(-45deg); opacity: 0; }
+}
+
+/* Touch Pulse Ripple Effect */
+.touch-pulse {
+position: fixed;
+border: 2px solid #ff3366;
+background: rgba(255, 51, 102, 0.3);
+border-radius: 50%;
+pointer-events: none;
+transform: translate(-50%, -50%) scale(0);
+animation: pulseEffect 0.4s ease-out;
+z-index: 99999;
+box-shadow: 0 0 15px #ff3366, 0 0 30px #33ccff;
+}
+@keyframes pulseEffect {
+to {
+width: 100px;
+height: 100px;
+opacity: 0;
+transform: translate(-50%, -50%) scale(1);
+}
+}
+
+/* Splash Screen Container */
+#splash {
+position: fixed;
+inset: 0;
+background: radial-gradient(circle at center, #11051c, #030008);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: 10000;
+text-align: center;
+opacity: 1;
+transition: opacity 0.5s ease-in-out;
+padding: 20px;
+}
+.splash-logo {
+font-size: 32px;
+font-weight: 800;
+color: #ffffff;
+letter-spacing: 2px;
+text-shadow: 0 0 12px #ff3366, 0 0 24px rgba(255, 51, 102, 0.5);
+animation: smoothFadePulse 2s ease-in-out infinite;
+margin-bottom: 15px;
+}
+@keyframes smoothFadePulse {
+0%, 100% { opacity: 0.8; transform: scale(0.98); }
+50% { opacity: 1; transform: scale(1.02); }
+}
+.splash-sub {
+font-size: 15px;
+font-weight: 500;
+color: #ffb347;
+letter-spacing: 1px;
+max-width: 300px;
+line-height: 1.5;
+}
+
+/* Header */
+.header{
+position:sticky;
+top:0;
+z-index:100;
+padding: 22px 15px;
+text-align:center;
+font-size:26px;
+font-weight:800;
+color:white;
+background: rgba(13, 7, 24, 0.9);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+box-shadow:0 8px 32px rgba(0,0,0,0.4);
+border-bottom: 2px solid rgba(255, 51, 102, 0.3);
+letter-spacing: 1px;
+}
+
+/* Pages Layout */
+.page{
+display:none;
+}
+.active{
+display:block;
+}
+
+/* Heavy Colorful Neon Boxes - SADA OUT, CLEAN THEME IN */
+.welcome-box {
+margin: 25px 18px;
+padding: 30px 22px;
+border-radius: 24px;
+background: linear-gradient(135deg, #240b36 0%, #c31432 100%);
+border: 2px solid #ff3366;
+text-align:center;
+color: white;
+box-shadow: 0 15px 35px rgba(255, 0, 85, 0.3);
+}
+.welcome-box h2{
+margin-bottom:15px;
+font-size: 24px;
+color: #ffb347;
+text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+font-weight: 800;
+}
+.welcome-box p{
+line-height:1.8;
+font-size:15.5px;
+color: #ffffff;
+font-weight: 500;
+}
+
+/* Products Layout with Bright Colorful Themes */
+.products{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+padding:18px;
+}
+.product-card{
+height:180px;
+border-radius:24px;
+padding:18px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+cursor:pointer;
+background: linear-gradient(135deg, #150a21 0%, #7b1fa2 100%);
+border: 2px solid #33ccff;
+box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+transition: all 0.2s ease;
+color: white;
+}
+.product-card:active {
+transform: scale(0.95);
+background: linear-gradient(135deg, #7b1fa2 0%, #ff0055 100%); 
+border-color: #ffb347;
+}
+.product-card i{
+font-size: 32px;
+margin-bottom: 14px;
+color: #ff9933;
+filter: drop-shadow(0 2px 8px rgba(255,153,51,0.5));
+}
+.product-card h3{
+font-size:14px;
+margin-bottom:10px;
+font-weight: 800;
+letter-spacing: 0.5px;
+}
+.product-card p{
+font-size:11px;
+font-weight:800;
+background: linear-gradient(45deg, #ff3366, #ff9933);
+padding: 5px 14px;
+border-radius: 14px;
+color: white;
+box-shadow: 0 4px 12px rgba(255,51,102,0.3);
+text-transform: uppercase;
+}
+
+/* About Layout with Extreme Fluid Color Spectrum */
+.about{
+padding: 25px 18px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+min-height: calc(100vh - 220px);
+}
+.about-box{
+background: linear-gradient(135deg, #0f0c20 0%, #190f26 100%);
+border: 2px solid #7b1fa2;
+padding: 35px 25px;
+border-radius: 26px;
+color: white;
+text-align:center;
+box-shadow: 0 20px 45px rgba(123, 31, 162, 0.3);
+display: flex;
+flex-direction: column;
+position: relative;
+}
+
+.about-box h2{
+order: 2;
+margin-top: 30px;
+margin-bottom:12px;
+font-size: 28px;
+color: #33ccff;
+font-weight: 800;
+text-shadow: 0 2px 10px rgba(51, 204, 255, 0.4);
+}
+.about-box p{
+order: 3;
+line-height: 1.9;
+font-size: 16px;
+color: #e0d5ed;
+margin-bottom: 20px;
+}
+
+/* Social Buttons Grid & Fixed Gaps */
+.social{
+order: 1;
+display:flex;
+flex-direction:column;
+max-width:350px;
+margin:auto;
+width: 100%;
+}
+
+/* Follow Us Main Title */
+.main-follow-title {
+font-size: 20px;
+font-weight: 800;
+color: #ff3366;
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-bottom: 20px;
+text-shadow: 0 0 12px rgba(255, 51, 102, 0.6);
+}
+
+/* Individual Rotation Header Text Styles */
+.rotate-banner {
+font-size: 12px;
+color: #ffb347;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 6px;
+margin-top: 14px;
+height: 18px;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: opacity 0.2s ease-in-out;
+text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.social a{
+text-decoration:none;
+color:white;
+padding: 16px;
+border-radius: 20px;
+font-weight:700;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:14px;
+transition: all 0.3s ease;
+box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+font-size: 16px;
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.social a:active{
+transform:scale(0.96);
+}
+.fb{ background: linear-gradient(135deg, #1877F2, #0053bf); }
+.insta{ background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.threads{ background: linear-gradient(135deg, #111, #222); }
+.youtube{ background: linear-gradient(135deg, #ff0000, #c40000); }
+
+/* Dynamic Shop Target Button Setup */
+.shop-pointer {
+order: 4;
+margin-top: 25px;
+background: linear-gradient(135deg, #ff3366, #ff9933);
+padding: 15px 20px;
+border-radius: 18px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 12px;
+color: #fff;
+font-weight: 800;
+font-size: 16px;
+text-transform: uppercase;
+cursor: pointer;
+box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
+animation: pulseBtn 1.5s infinite alternate ease-in-out;
+border: 1px solid rgba(255,255,255,0.2);
+}
+@keyframes pulseBtn {
+0% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4); }
+100% { transform: scale(1.04); box-shadow: 0 10px 30px rgba(255, 51, 102, 0.7); }
+}
+.shop-pointer i {
+font-size: 20px;
+animation: bounceIcon 0.6s infinite alternate;
+}
+@keyframes bounceIcon {
+0% { transform: translateX(0); }
+100% { transform: translateX(6px); }
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:80px;
+background: #0d0718;
+display:flex;
+justify-content:space-around;
+align-items:center;
+box-shadow: 0 -10px 35px rgba(0,0,0,0.6);
+border-top: 2px solid rgba(255, 255, 255, 0.1);
+z-index: 1000;
+}
+.nav-btn{
+background:none;
+border:none;
+cursor:pointer;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:6px;
+color: rgba(255, 255, 255, 0.45);
+font-size:14px;
+transition: all 0.3s ease;
+width: 50%;
+height: 100%;
+justify-content: center;
+font-weight: 700;
+}
+.nav-btn i{
+font-size:24px;
+}
+.nav-btn.nav-active {
+color: #fff;
+text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+.nav-btn.nav-active i {
+transform: scale(1.15);
+color: #ff3366;
+filter: drop-shadow(0 0 8px #ff3366);
+}
+</style>
+</head>
+<body>
+
+<div class="shooting-star-container">
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+</div>
+
+<div id="splash">
+<div class="splash-logo">BR_CRAFT_NEST</div>
+<div class="splash-sub">All types of unique handmade crafts are available here!</div>
+</div>
+
+<div class="header">
+✨ BR_CRAFT_NEST ✨
+</div>
+
+<div id="about" class="page active">
+<div class="about">
+<div class="about-box">
+<h2>About Us</h2>
+<p>
+Welcome to BR_CRAFT_NEST.
+We are passionate about creating beautiful handmade craft products with creativity and care.
+Our unique handmade collection will be available very soon.
+Follow us on social media for updates and new announcements!
+</p>
+<div class="social">
+<div class="main-follow-title">✨ Follow Us On Social Media ✨</div>
+
+<div class="rotate-banner" id="fb-switcher">Follow Us</div>
+<a class="fb" href="https://www.facebook.com/share/1L1JdGiYyW/?mibextid=wwXIfr" target="_blank">
+<i class="fab fa-facebook-f"></i> Facebook
+</a>
+
+<div class="rotate-banner" id="insta-switcher">Follow Us</div>
+<a class="insta" href="https://www.instagram.com/br_craft_nest?igsh=dm5iYnk0Z3AzYWk=" target="_blank">
+<i class="fab fa-instagram"></i> Instagram
+</a>
+
+<div class="rotate-banner" id="threads-switcher">Follow Us</div>
+<a class="threads" href="https://www.threads.com/@br_craft_nest?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
+<i class="fa-brands fa-threads"></i> Threads
+</a>
+
+<div class="rotate-banner" id="yt-switcher">Subscribe Us</div>
+<a class="youtube" href="https://www.youtube.com/@br_craft_nest" target="_blank">
+<i class="fab fa-youtube"></i> YouTube
+</a>
+</div>
+
+<div class="shop-pointer" onclick="showPage('products')">
+<i class="fa-solid fa-cart-shopping"></i>
+<span>Our Products - Shop Now</span>
+<i class="fa-solid fa-angles-right"></i>
+</div>
+</div>
+</div>
+</div>
+
+<div id="products" class="page">
+<div class="welcome-box">
+<h2>🧵 Handmade Craft Collection</h2>
+<p>
+We are preparing a beautiful collection of handmade craft products.
+Our unique creations will be available very soon.
+Stay tuned for exciting new arrivals.
+</p>
+</div>
+<div class="products">
+<div class="product-card" onclick="comingSoon()">
+<i class="fas fa-scissors"></i>
+<h3>Handmade Craft</h3>
+<p>Coming Soon</p>
+</div>
+<div class="product-card" onclick="comingSoon()">
+<i class="fas fa-paint-brush"></i>
+<h3>Unique Designs</h3>
+<p>Coming Soon</p>
+</div>
+<div class="product-card" onclick="comingSoon()">
+<i class="fas fa-lightbulb"></i>
+<h3>Creative Items</h3>
+<p>Coming Soon</p>
+</div>
+<div class="product-card" onclick="comingSoon()">
+<i class="fas fa-gift"></i>
+<h3>Gift Products</h3>
+<p>Coming Soon</p>
+</div>
+<div class="product-card" onclick="comingSoon()">
+<i class="fas fa-wand-magic-sparkles"></i>
+<h3>Custom Creations</h3>
+<p>Coming Soon</p>
+</div>
+<div class="product-card" onclick="comingSoon()">
+<i class="fas fa-palette"></i>
+<h3>Premium Art</h3>
+<p>Coming Soon</p>
+</div>
+<div class="product-card" onclick="comingSoon()">
+<i class="fas fa-gem"></i>
+<h3>Special Collection</h3>
+<p>Coming Soon</p>
+</div>
+</div>
+</div>
+
+<div class="bottom-nav">
+<button id="btn-about" class="nav-btn nav-active" onclick="showPage('about')">
+<i class="fa-solid fa-circle-info"></i>
+<span>About Us</span>
+</button>
+<button id="btn-products" class="nav-btn" onclick="showPage('products')">
+<i class="fa-solid fa-store"></i>
+<span>Our Products</span>
+</button>
+</div>
+
+<script>
+// Splash Screen handling
+setTimeout(() => {
+    const splash = document.getElementById('splash');
+    if (splash) {
+        splash.style.opacity = '0';
+        setTimeout(() => {
+            splash.style.display = 'none';
+        }, 500);
+    }
+}, 2200);
+
+// Multipurpose Rotate Transitions for each button
+const fbPhrases = ["Follow Us", "Subscribe Us", "Follow Now on Facebook"];
+const instaPhrases = ["Follow Us", "See Our Crafts", "Follow Now on Instagram"];
+const threadsPhrases = ["Follow Us", "New Updates", "Join Us on Threads"];
+const ytPhrases = ["Subscribe Us", "Watch Vlogs", "Subscribe Now on YouTube"];
+
+let fbIdx = 0, instaIdx = 0, thIdx = 0, ytIdx = 0;
+
+// Facebook Timer
+setInterval(() => {
+    const fbS = document.getElementById('fb-switcher');
+    if (fbS) {
+        fbS.style.opacity = '0';
+        setTimeout(() => {
+            fbIdx = (fbIdx + 1) % 3;
+            fbS.innerText = fbPhrases[fbIdx];
+            fbS.style.opacity = '1';
+        }, 200);
+    }
+}, 2000);
+
+// Instagram Timer
+setTimeout(() => {
+    setInterval(() => {
+        const insS = document.getElementById('insta-switcher');
+        if (insS) {
+            insS.style.opacity = '0';
+            setTimeout(() => {
+                instaIdx = (instaIdx + 1) % 3;
+                insS.innerText = instaPhrases[instaIdx];
+                insS.style.opacity = '1';
+            }, 200);
+        }
+    }, 2000);
+}, 500);
+
+// Threads Timer
+setTimeout(() => {
+    setInterval(() => {
+        const thS = document.getElementById('threads-switcher');
+        if (thS) {
+            thS.style.opacity = '0';
+            setTimeout(() => {
+                thIdx = (thIdx + 1) % 3;
+                thS.innerText = threadsPhrases[thIdx];
+                thS.style.opacity = '1';
+            }, 200);
+        }
+    }, 2000);
+}, 1000);
+
+// YouTube Timer
+setTimeout(() => {
+    setInterval(() => {
+        const ytS = document.getElementById('yt-switcher');
+        if (ytS) {
+            ytS.style.opacity = '0';
+            setTimeout(() => {
+                ytIdx = (ytIdx + 1) % 3;
+                ytS.innerText = ytPhrases[ytIdx];
+                ytS.style.opacity = '1';
+            }, 200);
+        }
+    }, 2000);
+}, 1500);
+
+// Interactive Touch Pulse Effect
+window.addEventListener('click', (e) => {
+    if (e.target.closest('.bottom-nav')) return;
+
+    const pulse = document.createElement('div');
+    pulse.className = 'touch-pulse';
+    pulse.style.left = `${e.clientX}px`;
+    pulse.style.top = `${e.clientY}px`;
+    document.body.appendChild(pulse);
+
+    pulse.addEventListener('animationend', () => {
+        pulse.remove();
+    });
+});
+
+// Navigation logic
+function showPage(page){
+    document.getElementById('about').style.display = 'none';
+    document.getElementById('products').style.display = 'none';
+    
+    document.getElementById(page).style.display = 'block';
+
+    document.getElementById('btn-about').classList.remove('nav-active');
+    document.getElementById('btn-products').classList.remove('nav-active');
+    document.getElementById('btn-' + page).classList.add('nav-active');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function comingSoon(){
+    alert("Our handmade craft products will be available very soon!");
+}
+</script>
+</body>
+</html>
