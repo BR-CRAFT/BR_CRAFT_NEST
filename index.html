@@ -139,7 +139,7 @@ max-width: 300px;
 line-height: 1.5;
 }
 
-/* Header (Logo-r sathe dynamic align kora holo) */
+/* Header (Compact Black Strip Layout) */
 .header{
 position:sticky;
 top:0;
@@ -148,7 +148,7 @@ padding: 12px 10px;
 display: flex;
 justify-content: center;
 align-items: center;
-gap: 10px; /* Logo ebong lekhari bhetor chotto shundor gap */
+gap: 10px;
 font-size:21px;
 font-weight:800;
 color:white;
@@ -161,23 +161,31 @@ letter-spacing: 1px;
 }
 /* Logo Style Setup */
 .header-logo {
-width: 35px; /* Mobile screen-e chotto-par perfect size */
+width: 35px;
 height: 35px;
-border-radius: 50%; /* Logo tike shundor round circle shape dabe */
+border-radius: 50%;
 object-fit: cover;
 box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Welcome Box Transparent Blending Mode */
+/* Page Hiding Logic Core Fixed - Force None block matching */
+.page {
+display: none !important;
+}
+.page.active {
+display: block !important;
+}
+
+/* Heavy Colorful Neon Boxes - SADA OUT */
 .welcome-box {
 margin: 25px 18px;
 padding: 30px 22px;
 border-radius: 24px;
-background: rgba(255, 255, 255, 0.05);
-border: 2px solid rgba(255, 51, 102, 0.4);
+background: linear-gradient(135deg, #240b36 0%, #c31432 100%);
+border: 2px solid #ff3366;
 text-align:center;
 color: white;
-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+box-shadow: 0 15px 35px rgba(255, 0, 85, 0.3);
 }
 .welcome-box h2{
 margin-bottom:15px;
@@ -291,7 +299,7 @@ margin:auto;
 width: 100%;
 }
 
-/* Follow Us Main Title Text */
+/* Follow Us Main Boro Text Layout */
 .main-follow-title {
 font-size: 20px;
 font-weight: 800;
@@ -633,12 +641,24 @@ window.addEventListener('click', (e) => {
     });
 });
 
-// Navigation logic
+// Navigation logic - FIXED OVERLAP ISSUE EFFECTIVELY
 function showPage(page){
-    document.getElementById('about').style.display = 'none';
-    document.getElementById('products').style.display = 'none';
+    const abPage = document.getElementById('about');
+    const prPage = document.getElementById('products');
     
-    document.getElementById(page).style.display = 'block';
+    if(abPage && prPage) {
+        abPage.style.setProperty('display', 'none', 'important');
+        prPage.style.setProperty('display', 'none', 'important');
+        
+        abPage.classList.remove('active');
+        prPage.classList.remove('active');
+    }
+
+    const targetPage = document.getElementById(page);
+    if(targetPage) {
+        targetPage.style.setProperty('display', 'block', 'important');
+        targetPage.classList.add('active');
+    }
 
     document.getElementById('btn-about').classList.remove('nav-active');
     document.getElementById('btn-products').classList.remove('nav-active');
