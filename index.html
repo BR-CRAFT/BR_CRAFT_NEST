@@ -42,7 +42,7 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-z-index: -1;
+z-index: 10005;
 overflow: hidden;
 pointer-events: none;
 }
@@ -54,7 +54,7 @@ height: 2px;
 background: linear-gradient(-45deg, #ffffff, rgba(0, 0, 255, 0));
 border-radius: 999px;
 filter: drop-shadow(0 0 6px #ffffff);
-animation: tail 3000s ease-in-out infinite, shooting 3s ease-in-out infinite;
+animation: tail 3s ease-in-out infinite, shooting 3s ease-in-out infinite;
 }
 .shooting-star::before, .shooting-star::after {
 content: '';
@@ -114,7 +114,7 @@ align-items: center;
 z-index: 10000;
 text-align: center;
 opacity: 1;
-transition: opacity 0.5s ease-in-out;
+transition: opacity 0.4s ease-in-out;
 padding: 20px;
 }
 .splash-logo {
@@ -123,7 +123,7 @@ font-weight: 800;
 color: #fff;
 letter-spacing: 2px;
 text-shadow: 0 0 12px #ff3366, 0 0 24px rgba(255, 51, 102, 0.5);
-animation: smoothFadePulse 2s ease-in-out infinite;
+animation: smoothFadePulse 1.5s ease-in-out infinite;
 margin-bottom: 15px;
 }
 @keyframes smoothFadePulse {
@@ -139,7 +139,7 @@ max-width: 300px;
 line-height: 1.5;
 }
 
-/* Header (Compact Black Strip Layout) */
+/* Header */
 .header{
 position:sticky;
 top:0;
@@ -159,7 +159,6 @@ box-shadow:0 6px 24px rgba(0,0,0,0.4);
 border-bottom: 2px solid rgba(255, 51, 102, 0.3);
 letter-spacing: 1px;
 }
-/* Logo Style Setup */
 .header-logo {
 width: 35px;
 height: 35px;
@@ -168,7 +167,7 @@ object-fit: cover;
 box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Page Hiding Logic Core Fixed - Force None block matching */
+/* Page Hiding Logic */
 .page {
 display: none !important;
 }
@@ -176,16 +175,16 @@ display: none !important;
 display: block !important;
 }
 
-/* Heavy Colorful Neon Boxes - SADA OUT */
+/* Welcome Box */
 .welcome-box {
 margin: 25px 18px;
 padding: 30px 22px;
 border-radius: 24px;
-background: linear-gradient(135deg, #240b36 0%, #c31432 100%);
-border: 2px solid #ff3366;
+background: rgba(255, 255, 255, 0.05);
+border: 2px solid rgba(255, 51, 102, 0.4);
 text-align:center;
 color: white;
-box-shadow: 0 15px 35px rgba(255, 0, 85, 0.3);
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 .welcome-box h2{
 margin-bottom:15px;
@@ -201,60 +200,180 @@ color: #ffffff;
 font-weight: 500;
 }
 
-/* Products Layout with Bright Colorful Themes */
+/* Products Layout */
 .products{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:18px;
-padding:18px;
+display: flex;
+flex-direction: column;
+gap: 24px;
+padding: 18px;
 }
 .product-card{
-height:180px;
-border-radius:24px;
-padding:18px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-cursor:pointer;
+width: 100%;
+height: 380px;
+border-radius: 26px;
+padding: 16px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+text-align: center;
+cursor: pointer;
 background: linear-gradient(135deg, #150a21 0%, #7b1fa2 100%);
 border: 2px solid #33ccff;
-box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 transition: all 0.2s ease;
 color: white;
+overflow: hidden;
+position: relative;
 }
-.product-card:active {
-transform: scale(0.95);
-background: linear-gradient(135deg, #7b1fa2 0%, #ff0055 100%) !important; 
-border-color: #ffb347;
+
+/* Static Non-clickable card behavior for Item 8 */
+.product-card.static-card {
+cursor: default;
+justify-content: center;
 }
+
+/* Slider Container Base Style */
+.slider-container {
+width: 100%;
+overflow: hidden;
+position: relative;
+box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.static-card .slider-container {
+height: 340px;
+border-radius: 22px;
+}
+
+/* Slider images routing config */
+.slider-img-about, .slider-img-8 {
+width: 100%;
+height: 100%;
+object-fit: cover;
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+transition: opacity 0.6s ease-in-out;
+}
+.slider-img-about.visible, .slider-img-8.visible {
+opacity: 1;
+position: relative;
+}
+
+/* Placeholder icons for empty craft boxes */
 .product-card i{
-font-size: 32px;
-margin-bottom: 14px;
+font-size: 55px;
+margin-top: 70px;
 color: #ff9933;
 filter: drop-shadow(0 2px 8px rgba(255,153,51,0.4));
 }
 .product-card h3{
-font-size:14px;
-margin-bottom:10px;
+font-size: 18px;
 font-weight: 800;
 letter-spacing: 0.5px;
+margin-top: 12px;
 }
 .product-card p{
-font-size:11px;
-font-weight:800;
+font-size: 12px;
+font-weight: 800;
 background: linear-gradient(45deg, #ff3366, #ff9933);
-padding: 5px 14px;
-border-radius: 14px;
+padding: 8px 22px;
+border-radius: 16px;
 color: white;
 box-shadow: 0 4px 12px rgba(255,51,102,0.3);
 text-transform: uppercase;
+margin-top: 8px;
 }
 
-/* About Layout - Full Transparent Theme */
+/* Product Detail Page Styling */
+.detail-container {
+padding: 20px 18px;
+color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 22px;
+}
+.main-img-holder {
+width: 100%;
+height: 350px;
+border-radius: 26px;
+overflow: hidden;
+border: 2px solid #33ccff;
+box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+}
+.main-img-holder img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 14px;
+width: 100%;
+}
+.gallery-grid img {
+width: 100%;
+height: 90px;
+object-fit: cover;
+border-radius: 16px;
+border: 1px solid rgba(255,255,255,0.2);
+cursor: pointer;
+transition: transform 0.2s;
+}
+.gallery-grid img:active {
+transform: scale(0.92);
+border-color: #ff3366;
+}
+.info-box {
+width: 100%;
+text-align: center;
+background: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255,255,255,0.1);
+padding: 22px;
+border-radius: 26px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.info-box h2 {
+font-size: 26px;
+color: #fff;
+margin-bottom: 8px;
+font-weight: 800;
+}
+.info-box .price {
+font-size: 24px;
+color: #38ef7d;
+font-weight: 800;
+margin-bottom: 18px;
+text-shadow: 0 0 10px rgba(56, 239, 125, 0.3);
+}
+.buy-btn {
+width: 100%;
+background: linear-gradient(135deg, #25d366, #128c7e);
+color: white;
+border: none;
+padding: 16px;
+border-radius: 18px;
+font-size: 16px;
+font-weight: 800;
+text-transform: uppercase;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+transition: transform 0.2s;
+}
+.buy-btn:active {
+transform: scale(0.96);
+}
+
+/* About Layout */
 .about{
-padding: 25px 18px;
+padding: 10px 18px 25px 18px;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -263,7 +382,7 @@ min-height: calc(100vh - 220px);
 .about-box{
 background: transparent !important;
 border: none !important;
-padding: 15px 10px;
+padding: 5px 10px;
 color: white;
 text-align:center;
 box-shadow: none !important;
@@ -272,8 +391,88 @@ flex-direction: column;
 position: relative;
 }
 
-.about-box h2{
+/* Social media layout sequence */
+.social {
+order: 1;
+display:flex;
+flex-direction:column;
+max-width:350px;
+margin:0 auto;
+width: 100%;
+}
+
+/* Gap minimized between Order Now & YouTube button */
+.shop-section-container {
 order: 2;
+margin-top: 25px;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+position: relative;
+}
+.shop-section-container .rotate-banner {
+height: 25px;
+margin-top: 0px;
+margin-bottom: 5px;
+font-size: 13px;
+font-weight: bold;
+color: #ffb347;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.shop-pointer {
+background: linear-gradient(135deg, #ff3366, #ff9933);
+padding: 16px 20px;
+border-radius: 18px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 12px;
+color: #fff;
+font-weight: 800;
+font-size: 16px;
+text-transform: uppercase;
+cursor: pointer;
+box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
+animation: pulseBtn 1.5s infinite alternate ease-in-out;
+border: 1px solid rgba(255,255,255,0.2);
+width: 100%;
+max-width: 350px;
+}
+@keyframes pulseBtn {
+0% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4); }
+100% { transform: scale(1.04); box-shadow: 0 10px 30px rgba(255, 51, 102, 0.7); }
+}
+.shop-pointer i {
+font-size: 20px;
+animation: bounceIcon 0.6s infinite alternate;
+}
+@keyframes bounceIcon {
+0% { transform: translateX(0); }
+100% { transform: translateX(6px); }
+}
+
+/* ABOUT PAGE MINI SLIDER */
+.about-mini-slider {
+order: 3;
+width: 100%;
+max-width: 350px;
+height: 210px;
+margin: 25px auto 0 auto;
+border-radius: 20px;
+overflow: hidden;
+border: 2px solid #33ccff;
+box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+position: relative;
+cursor: default;
+}
+
+/* About Us Header and Paragraph Pushed Downwards */
+.about-box h2{
+order: 4;
 margin-top: 30px;
 margin-bottom:12px;
 font-size: 28px;
@@ -282,35 +481,22 @@ font-weight: 800;
 text-shadow: 0 2px 10px rgba(51, 204, 255, 0.4);
 }
 .about-box p{
-order: 3;
+order: 5;
 line-height: 1.9;
 font-size: 16px;
 color: #e0d5ed;
 margin-bottom: 20px;
 }
 
-/* Social Buttons Grid & Fixed Gaps */
-.social{
-order: 1;
-display:flex;
-flex-direction:column;
-max-width:350px;
-margin:auto;
-width: 100%;
-}
-
-/* Follow Us Main Boro Text Layout */
 .main-follow-title {
 font-size: 20px;
 font-weight: 800;
 color: #ff3366;
 letter-spacing: 1px;
 text-transform: uppercase;
-margin-bottom: 20px;
+margin-bottom: 15px;
 text-shadow: 0 0 12px rgba(255, 51, 102, 0.6);
 }
-
-/* Individual Rotation Header Text Styles */
 .rotate-banner {
 font-size: 12px;
 color: #ffb347;
@@ -318,7 +504,7 @@ font-weight: bold;
 text-transform: uppercase;
 letter-spacing: 1px;
 margin-bottom: 4px;
-margin-top: 14px;
+margin-top: 10px;
 height: 18px;
 display: flex;
 justify-content: center;
@@ -326,11 +512,10 @@ align-items: center;
 transition: opacity 0.2s ease-in-out;
 text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
-
 .social a{
 text-decoration:none;
 color:white;
-padding: 16px;
+padding: 15px;
 border-radius: 20px;
 font-weight:700;
 display:flex;
@@ -350,40 +535,7 @@ transform:scale(0.96);
 .threads{ background: linear-gradient(135deg, #111, #222); }
 .youtube{ background: linear-gradient(135deg, #ff0000, #c40000); }
 
-/* Dynamic Shop Target Button Setup */
-.shop-pointer {
-order: 4;
-margin-top: 25px;
-background: linear-gradient(135deg, #ff3366, #ff9933);
-padding: 15px 20px;
-border-radius: 18px;
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 12px;
-color: #fff;
-font-weight: 800;
-font-size: 16px;
-text-transform: uppercase;
-cursor: pointer;
-box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
-animation: pulseBtn 1.5s infinite alternate ease-in-out;
-border: 1px solid rgba(255,255,255,0.2);
-}
-@keyframes pulseBtn {
-0% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4); }
-100% { transform: scale(1.04); box-shadow: 0 10px 30px rgba(255, 51, 102, 0.7); }
-}
-.shop-pointer i {
-font-size: 20px;
-animation: bounceIcon 0.6s infinite alternate;
-}
-@keyframes bounceIcon {
-0% { transform: translateX(0); }
-100% { transform: translateX(6px); }
-}
-
-/* Bottom Navigation Bar - FIXED BLACK PANEL */
+/* Bottom Navigation Bar */
 .bottom-nav{
 position:fixed;
 bottom:0;
@@ -446,16 +598,11 @@ filter: drop-shadow(0 0 8px #ff3366);
 <span>BR_CRAFT_NEST</span>
 </div>
 
+<!-- ABOUT PAGE -->
 <div id="about" class="page active">
 <div class="about">
 <div class="about-box">
-<h2>About Us</h2>
-<p>
-Welcome to BR_CRAFT_NEST.
-We are passionate about creating beautiful handmade craft products with creativity and care.
-Our unique handmade collection will be available very soon.
-Follow us on social media for updates and new announcements!
-</p>
+
 <div class="social">
 <div class="main-follow-title">✨ Follow Us On Social Media ✨</div>
 
@@ -480,15 +627,37 @@ Follow us on social media for updates and new announcements!
 </a>
 </div>
 
+<!-- FIXED SHOP CONTAINER -->
+<div class="shop-section-container">
+<div class="rotate-banner" id="shop-banner-rotator">Shop Now</div>
 <div class="shop-pointer" onclick="showPage('products')">
 <i class="fa-solid fa-cart-shopping"></i>
 <span>Our Products - Shop Now</span>
 <i class="fa-solid fa-angles-right"></i>
 </div>
 </div>
+
+<!-- ABOUT PAGE MINI SLIDER WITH SPECIFIC IMAGE NAMES -->
+<div class="about-mini-slider">
+<img src="display.jpeg" class="slider-img-about visible" alt="About Pic 1">
+<img src="display1.jpeg" class="slider-img-about" alt="About Pic 2">
+<img src="logo.jpeg" class="slider-img-about" alt="About Pic 3">
+</div>
+
+<!-- ABOUT TEXT PUSHED BELOW -->
+<h2>About Us</h2>
+<p>
+Welcome to BR_CRAFT_NEST.
+We are passionate about creating beautiful handmade craft products with creativity and care.
+Our unique handmade collection will be available very soon.
+Follow us on social media for updates and new announcements!
+</p>
+
+</div>
 </div>
 </div>
 
+<!-- PRODUCTS PAGE -->
 <div id="products" class="page">
 <div class="welcome-box">
 <h2>🧵 Handmade Craft Collection</h2>
@@ -499,44 +668,83 @@ Stay tuned for exciting new arrivals.
 </p>
 </div>
 <div class="products">
+
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-scissors"></i>
 <h3>Handmade Craft</h3>
 <p>Coming Soon</p>
 </div>
+
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-paint-brush"></i>
 <h3>Unique Designs</h3>
 <p>Coming Soon</p>
 </div>
+
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-lightbulb"></i>
 <h3>Creative Items</h3>
 <p>Coming Soon</p>
 </div>
+
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-gift"></i>
 <h3>Gift Products</h3>
 <p>Coming Soon</p>
 </div>
+
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-wand-magic-sparkles"></i>
 <h3>Custom Creations</h3>
 <p>Coming Soon</p>
 </div>
+
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-palette"></i>
 <h3>Premium Art</h3>
 <p>Coming Soon</p>
 </div>
+
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-gem"></i>
-<h3>Special Collection</h3>
+<h3>Creative Creations</h3>
 <p>Coming Soon</p>
+</div>
+
+<!-- 8 NUMBER CARD: SPECIFIC IMAGE NAMES ASSIGNED -->
+<div class="product-card static-card">
+<div class="slider-container">
+<img src="display.jpeg" class="slider-img-8 visible" alt="Display 1">
+<img src="display1.jpeg" class="slider-img-8" alt="Display 2">
+<img src="logo.jpeg" class="slider-img-8" alt="Display 3">
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- DEDICATED PRODUCT DETAIL PAGE (RESERVED BACKGROUND ENGINE) -->
+<div id="product-detail" class="page">
+<div class="detail-container">
+<div class="main-img-holder">
+<img id="main-product-view" src="logo.jpeg" alt="Main View">
+</div>
+<div class="gallery-grid">
+<img id="thumb1" src="logo.jpeg" alt="Thumb 1" onclick="changeMainView(this.src)">
+<img id="thumb2" src="logo.jpeg" alt="Thumb 2" onclick="changeMainView(this.src)">
+<img id="thumb3" src="logo.jpeg" alt="Thumb 3" onclick="changeMainView(this.src)">
+</div>
+<div class="info-box">
+<h2 id="detail-name">Product Name</h2>
+<div class="price" id="detail-price">Rs. 0.00</div>
+<button class="buy-btn" onclick="sendWhatsAppOrder()">
+<i class="fa-brands fa-whatsapp"></i> Buy Now via WhatsApp
+</button>
 </div>
 </div>
 </div>
 
+<!-- Bottom Nav Bar -->
 <div class="bottom-nav">
 <button id="btn-about" class="nav-btn nav-active" onclick="showPage('about')">
 <i class="fa-solid fa-circle-info"></i>
@@ -556,11 +764,11 @@ setTimeout(() => {
         splash.style.opacity = '0';
         setTimeout(() => {
             splash.style.display = 'none';
-        }, 500);
+        }, 400);
     }
-}, 2200);
+}, 1200);
 
-// Multipurpose Separate Async Transitions (2 Second Intervals & Staggered Delay)
+// Text transitions logic
 const fbPhrases = ["Follow Us", "Subscribe Us", "Follow Now on Facebook"];
 const instaPhrases = ["Follow Us", "See Our Crafts", "Follow Now on Instagram"];
 const threadsPhrases = ["Follow Us", "New Updates", "Join Us on Threads"];
@@ -568,90 +776,94 @@ const ytPhrases = ["Subscribe Us", "Watch Vlogs", "Subscribe Now on YouTube"];
 
 let fbIdx = 0, instaIdx = 0, thIdx = 0, ytIdx = 0;
 
-// Facebook Timer
 setInterval(() => {
     const fbS = document.getElementById('fb-switcher');
-    if (fbS) {
-        fbS.style.opacity = '0';
+    if (fbS) { fbS.style.opacity = '0'; setTimeout(() => { fbIdx = (fbIdx + 1) % 3; fbS.innerText = fbPhrases[fbIdx]; fbS.style.opacity = '1'; }, 200); }
+}, 2000);
+
+setTimeout(() => {
+    setInterval(() => {
+        const insS = document.getElementById('insta-switcher');
+        if (insS) { insS.style.opacity = '0'; setTimeout(() => { instaIdx = (instaIdx + 1) % 3; insS.innerText = instaPhrases[instaIdx]; insS.style.opacity = '1'; }, 200); }
+    }, 2000);
+}, 500);
+
+setTimeout(() => {
+    setInterval(() => {
+        const thS = document.getElementById('threads-switcher');
+        if (thS) { thS.style.opacity = '0'; setTimeout(() => { thIdx = (thIdx + 1) % 3; thS.innerText = threadsPhrases[thIdx]; thS.style.opacity = '1'; }, 200); }
+    }, 2000);
+}, 1000);
+
+setTimeout(() => {
+    setInterval(() => {
+        const ytS = document.getElementById('yt-switcher');
+        if (ytS) { ytS.style.opacity = '0'; setTimeout(() => { ytIdx = (ytIdx + 1) % 3; ytS.innerText = ytPhrases[ytIdx]; ytS.style.opacity = '1'; }, 200); }
+    }, 2000);
+}, 1500);
+
+// 2 Second Fixed Banner Text Rotation Engine
+const shopPhrases = ["Shop Now", "Order Now", "Sale Is Live", "Handmade Products"];
+let shopIdx = 0;
+setInterval(() => {
+    const shopBanner = document.getElementById('shop-banner-rotator');
+    if (shopBanner) {
+        shopBanner.style.opacity = '0';
         setTimeout(() => {
-            fbIdx = (fbIdx + 1) % 3;
-            fbS.innerText = fbPhrases[fbIdx];
-            fbS.style.opacity = '1';
+            shopIdx = (shopIdx + 1) % 4;
+            shopBanner.innerText = shopPhrases[shopIdx];
+            shopBanner.style.opacity = '1';
         }, 200);
     }
 }, 2000);
 
-// Instagram Timer
-setTimeout(() => {
+// Automatic Image Slider for About Page Mini Box
+let currentSlideAbout = 0;
+const slidesAbout = document.querySelectorAll('.slider-img-about');
+if(slidesAbout.length > 0) {
     setInterval(() => {
-        const insS = document.getElementById('insta-switcher');
-        if (insS) {
-            insS.style.opacity = '0';
-            setTimeout(() => {
-                instaIdx = (instaIdx + 1) % 3;
-                insS.innerText = instaPhrases[instaIdx];
-                insS.style.opacity = '1';
-            }, 200);
-        }
-    }, 2000);
-}, 500);
+        slidesAbout[currentSlideAbout].classList.remove('visible');
+        currentSlideAbout = (currentSlideAbout + 1) % slidesAbout.length;
+        slidesAbout[currentSlideAbout].classList.add('visible');
+    }, 2500);
+}
 
-// Threads Timer
-setTimeout(() => {
+// Automatic Image Slider for Card 8
+let currentSlide8 = 0;
+const slides8 = document.querySelectorAll('.slider-img-8');
+if(slides8.length > 0) {
     setInterval(() => {
-        const thS = document.getElementById('threads-switcher');
-        if (thS) {
-            thS.style.opacity = '0';
-            setTimeout(() => {
-                thIdx = (thIdx + 1) % 3;
-                thS.innerText = threadsPhrases[thIdx];
-                thS.style.opacity = '1';
-            }, 200);
-        }
-    }, 2000);
-}, 1000);
-
-// YouTube Timer
-setTimeout(() => {
-    setInterval(() => {
-        const ytS = document.getElementById('yt-switcher');
-        if (ytS) {
-            ytS.style.opacity = '0';
-            setTimeout(() => {
-                ytIdx = (ytIdx + 1) % 3;
-                ytS.innerText = ytPhrases[ytIdx];
-                ytS.style.opacity = '1';
-            }, 200);
-        }
-    }, 2000);
-}, 1500);
+        slides8[currentSlide8].classList.remove('visible');
+        currentSlide8 = (currentSlide8 + 1) % slides8.length;
+        slides8[currentSlide8].classList.add('visible');
+    }, 2500);
+}
 
 // Interactive Touch Pulse Effect
 window.addEventListener('click', (e) => {
     if (e.target.closest('.bottom-nav')) return;
-
     const pulse = document.createElement('div');
     pulse.className = 'touch-pulse';
     pulse.style.left = `${e.clientX}px`;
     pulse.style.top = `${e.clientY}px`;
     document.body.appendChild(pulse);
-
-    pulse.addEventListener('animationend', () => {
-        pulse.remove();
-    });
+    pulse.addEventListener('animationend', () => { pulse.remove(); });
 });
 
-// Navigation logic - FIXED OVERLAP ISSUE EFFECTIVELY
+// Main Page Navigation Routing
 function showPage(page){
     const abPage = document.getElementById('about');
     const prPage = document.getElementById('products');
+    const dtPage = document.getElementById('product-detail');
     
-    if(abPage && prPage) {
+    if(abPage && prPage && dtPage) {
         abPage.style.setProperty('display', 'none', 'important');
         prPage.style.setProperty('display', 'none', 'important');
+        dtPage.style.setProperty('display', 'none', 'important');
         
         abPage.classList.remove('active');
         prPage.classList.remove('active');
+        dtPage.classList.remove('active');
     }
 
     const targetPage = document.getElementById(page);
@@ -660,13 +872,53 @@ function showPage(page){
         targetPage.classList.add('active');
     }
 
-    document.getElementById('btn-about').classList.remove('nav-active');
-    document.getElementById('btn-products').classList.remove('nav-active');
-    document.getElementById('btn-' + page).classList.add('nav-active');
-
+    if(page === 'about' || page === 'products' || page === 'product-detail') {
+        document.getElementById('btn-about').classList.remove('nav-active');
+        document.getElementById('btn-products').classList.remove('nav-active');
+        if(page !== 'product-detail') {
+            document.getElementById('btn-' + page).classList.add('nav-active');
+        } else {
+            document.getElementById('btn-products').classList.add('nav-active');
+        }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// Product Detail Setup
+let activeProductName = "";
+let activeProductPrice = "";
+
+function openProductDetail(name, price, mainImg, t1, t2, t3) {
+    activeProductName = name;
+    activeProductPrice = price;
+
+    document.getElementById('detail-name').innerText = name;
+    document.getElementById('detail-price').innerText = price;
+    
+    document.getElementById('main-product-view').src = mainImg;
+    document.getElementById('thumb1').src = t1;
+    document.getElementById('thumb2').src = t2;
+    document.getElementById('thumb3').src = t3;
+
+    showPage('product-detail');
+}
+
+function changeMainView(src) {
+    document.getElementById('main-product-view').src = src;
+}
+
+// WhatsApp Order Engine
+function sendWhatsAppOrder() {
+    const myWhatsAppNumber = "YOUR_NUMBER_HERE"; 
+    
+    const baseMessage = `Hello, I want to buy ${activeProductName} for ${activeProductPrice}.`;
+    const encryptedText = encodeURIComponent(baseMessage);
+    const apiLink = `https://wa.me/${myWhatsAppNumber}?text=${encryptedText}`;
+    
+    window.open(apiLink, '_blank');
+}
+
+// Global Alert core fallback
 function comingSoon(){
     alert("Our handmade craft products will be available very soon!");
 }
