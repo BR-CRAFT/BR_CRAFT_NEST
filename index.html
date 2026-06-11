@@ -642,17 +642,18 @@ transition: transform 0.2s;
 transform: scale(0.96);
 }
 
-/* About Layout Sequence (Fixed layout bug for social buttons display) */
+/* ==========================================================================
+   1ST PAGE: ABOUT US (বোতামগুলো আরও ওপরের দিকে তুলে গ্যাপ কমানো হলো)
+   ========================================================================== */
 .about{
-padding: 10px 14px 25px 14px;
+padding: 5px 14px 25px 14px; 
 display: flex;
 flex-direction: column;
-gap: 15px;
 }
 .about-box{
 background: transparent !important;
 border: none !important;
-padding: 5px 4px;
+padding: 0px;
 color: white;
 text-align:center;
 box-shadow: none !important;
@@ -662,28 +663,95 @@ position: relative;
 width: 100%;
 }
 
-/* ফ্লেক্স বক্স সিকোয়েন্স এবং ডিপ ওয়ান-বাই-ওয়ান অর্ডারিং ফিক্সড */
-.entry-welcome-title { margin-top: 10px; margin-bottom: 5px; }
-.social { display:flex; flex-direction:column; width: 100%; margin: 15px auto 0 auto; gap: 10px; }
-.shop-section-container { margin-top: 25px; display: flex; flex-direction: column; align-items: center; width: 100%; position: relative; }
-.about-mini-slider { width: 100%; height: 210px; margin: 25px auto 0 auto; border-radius: 20px; overflow: hidden; border: 2px solid #33ccff; box-shadow: 0 8px 25px rgba(0,0,0,0.4); position: relative; }
-.about-box h2{ margin-top: 30px; margin-bottom:12px; font-size: 28px; color: #33ccff; font-weight: 800; text-shadow: 0 2px 10px rgba(51, 204, 255, 0.4); }
-.about-box p{ line-height: 1.9; font-size: 16px; color: #e0d5ed; margin-bottom: 20px; text-align: center; }
-
-.shop-section-container .rotate-banner { height: 25px; margin-top: 0px; margin-bottom: 5px; font-size: 13px; font-weight: bold; color: #ffb347; text-transform: uppercase; letter-spacing: 1.5px; text-shadow: 0 1px 5px rgba(0,0,0,0.5); }
-.shop-pointer { background: linear-gradient(135deg, #ff3366, #ff9933); padding: 16px 20px; border-radius: 18px; display: flex; justify-content: center; align-items: center; gap: 12px; color: #fff; font-weight: 800; font-size: 16px; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4); animation: pulseBtn 1.5s infinite alternate ease-in-out; border: 1px solid rgba(255,255,255,0.2); width: 100%; }
-@keyframes pulseBtn { 0% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4); } 100% { transform: scale(1.04); box-shadow: 0 10px 30px rgba(255, 51, 102, 0.7); } }
-.shop-pointer i { font-size: 20px; animation: bounceIcon 0.6s infinite alternate; }
-@keyframes bounceIcon { 0% { transform: translateX(0); } 100% { transform: translateX(6px); } }
-
-.main-follow-title { font-size: 20px; font-weight: 800; color: #ff3366; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px; text-shadow: 0 0 12px rgba(255, 51, 102, 0.6); }
-.rotate-banner { font-size: 12px; color: #ffb347; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; margin-top: 10px; height: 18px; display: flex; justify-content: center; align-items: center; transition: opacity 0.2s ease-in-out; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
-.social a{ text-decoration:none; color:white; padding: 15px; border-radius: 20px; font-weight:700; display:flex; justify-content:center; align-items:center; gap:14px; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(0,0,0,0.3); font-size: 16px; border: 1px solid rgba(255, 255, 255, 0.1); width: 100%; }
+/* সোশ্যাল মিডিয়া বক্স - গ্যাপ আরও কমিয়ে ওপরে পুশড */
+.social { 
+display: flex; 
+flex-direction: column; 
+width: 100%; 
+margin: -5px auto 0 auto; 
+gap: 5px; 
+}
+.main-follow-title { 
+font-size: 21px; 
+font-weight: 800; 
+color: #ff3366; 
+letter-spacing: 1px; 
+text-transform: uppercase; 
+margin-bottom: 12px; 
+text-shadow: 0 0 12px rgba(255, 51, 102, 0.6); 
+}
+.rotate-banner { 
+font-size: 11px; 
+color: #ffb347; 
+font-weight: bold; 
+text-transform: uppercase; 
+letter-spacing: 1px; 
+margin-bottom: 3px; 
+margin-top: 2px; 
+height: 16px; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+transition: opacity 0.2s ease-in-out; 
+text-shadow: 0 1px 4px rgba(0,0,0,0.4); 
+}
+.social a{ 
+text-decoration: none; 
+color: white; 
+padding: 15px; 
+border-radius: 24px; 
+font-weight: 700; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+gap: 14px; 
+transition: all 0.3s ease; 
+box-shadow: 0 6px 20px rgba(0,0,0,0.3); 
+font-size: 16px; 
+border: 1px solid rgba(255, 255, 255, 0.1); 
+width: 100%; 
+}
 .social a:active{ transform:scale(0.96); }
 .fb{ background: linear-gradient(135deg, #1877F2, #0053bf); }
 .insta{ background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
 .threads{ background: linear-gradient(135deg, #111, #222); }
 .youtube{ background: linear-gradient(135deg, #ff0000, #c40000); }
+
+/* শপ নাও সেকশন */
+.shop-section-container { 
+margin-top: 10px; 
+display: flex; 
+flex-direction: column; 
+align-items: center; 
+width: 100%; 
+position: relative; 
+}
+.shop-section-container .rotate-banner { height: 16px; margin-top: 4px; margin-bottom: 2px; }
+.shop-pointer { 
+background: linear-gradient(135deg, #ff3366, #ff9933); 
+padding: 16px 20px; 
+border-radius: 18px; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+gap: 12px; 
+color: #fff; 
+font-weight: 800; 
+font-size: 16px; 
+text-transform: uppercase; 
+cursor: pointer; 
+box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4); 
+animation: pulseBtn 1.5s infinite alternate ease-in-out; 
+border: 1px solid rgba(255,255,255,0.2); 
+width: 100%; 
+}
+.shop-pointer i { font-size: 20px; animation: bounceIcon 0.6s infinite alternate; }
+@keyframes bounceIcon { 0% { transform: translateX(0); } 100% { transform: translateX(6px); } }
+
+/* মিনি স্লাইডার এবং টেক্সট ডেসক্রিপশন */
+.about-mini-slider { width: 100%; height: 210px; margin: 25px auto 0 auto; border-radius: 20px; overflow: hidden; border: 2px solid #33ccff; box-shadow: 0 8px 25px rgba(0,0,0,0.4); position: relative; }
+.about-box h2{ margin-top: 25px; margin-bottom: 10px; font-size: 28px; color: #33ccff; font-weight: 800; text-shadow: 0 2px 10px rgba(51, 204, 255, 0.4); }
+.about-box p{ line-height: 1.9; font-size: 16px; color: #e0d5ed; margin-bottom: 20px; text-align: center; }
 
 /* Bottom Nav Bar */
 .bottom-nav{
@@ -752,8 +820,6 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 <div id="about" class="page active">
 <div class="about">
 <div class="about-box">
-
-<div class="entry-welcome-title">✨ WELCOME ✨</div>
 
 <div class="social">
 <div class="main-follow-title">✨ Follow Us On Social Media ✨</div>
@@ -886,7 +952,7 @@ Follow us on social media for updates and new announcements!
 </div>
 
 <div id="product-detail" class="page">
-<div class="detail-container">
+<div class="detail-container" id="detail-view-anchor">
   
   <div class="detail-back-bar">
     <button class="detail-back-btn" onclick="showPage('products')">
@@ -944,6 +1010,7 @@ Follow us on social media for updates and new announcements!
 </div>
 
 <script>
+// টপ রানিং টেক্সট ব্যানার ডেটা
 const originalMarqueeText = "We sell unique handmade products like handmade key rings, mobile rings, roses, bouquets and much more... ✨";
 const productPageMarqueeText = "Our products are available in high quality and at an affordable price.";
 let pendingMarqueeText = "";
@@ -960,11 +1027,11 @@ setTimeout(() => {
     }
 }, 1200);
 
-// Text transitions logic
-const fbPhrases = ["Follow Us", "Subscribe Us", "Follow Now on Facebook"];
-const instaPhrases = ["Follow Us", "See Our Crafts", "Follow Now on Instagram"];
-const threadsPhrases = ["Follow Us", "New Updates", "Join Us on Threads"];
-const ytPhrases = ["Subscribe Us", "Watch Vlogs", "Subscribe Now on YouTube"];
+// টেক্সট পরিবর্তনের লজিক
+const fbPhrases = ["Follow Us on Facebook", "Like Our Page", "Join Our Facebook Family"];
+const instaPhrases = ["Follow Us on Instagram", "See Our Craft Reels", "Catch New Designs Live"];
+const threadsPhrases = ["Follow Us on Threads", "Daily Craft Thoughts", "Join Threads Circle"];
+const ytPhrases = ["Subscribe on YouTube", "Watch Craft Making Videos", "Subscribe Now for Vlogs"];
 
 let fbIdx = 0, instaIdx = 0, thIdx = 0, ytIdx = 0;
 
@@ -1152,7 +1219,18 @@ function showPage(page){
     if (page !== 'product-detail') {
         stopDetailSlider();
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // টার্গেটেড স্ক্রোলিং সলিউশন
+    if (page === 'product-detail') {
+        setTimeout(() => {
+            const anchor = document.getElementById('detail-view-anchor');
+            if (anchor) {
+                anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 80);
+    } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 }
 
 /* ৩ নম্বর পেজ: স্লাইডার ও সোয়াইপ লজিক */
@@ -1252,27 +1330,24 @@ function selectMeterOption(radioId, sizeName, priceValue) {
     document.getElementById('detail-price').innerText = "Rs. " + priceValue.replace('₹', '') + ".00";
 }
 
+// হোয়াটসঅ্যাপ কার্ড ইমেজ প্রিভিউ বুস্টার ইঞ্জিন (ছবি সহ শেয়ার করার সলিউশন)
 function triggerWebShare(event) {
     event.stopPropagation();
     const pName = document.getElementById('detail-name').innerText;
     const pPrice = document.getElementById('detail-price').innerText;
+    
+    // বর্তমান স্ক্রিনে যে ছবিটি স্লাইড হচ্ছে তার সোর্স লিংক ট্র্যাক করা
     const currentImgUrl = document.getElementById('main-product-view').src;
+    
+    // আপনার সাইটের লাইভ বেস ইউআরএল জেনারেট করা
     const webUrl = window.location.href;
 
-    const shareData = {
-        title: 'BR_CRAFT_NEST - ' + pName,
-        text: `✨ BR_CRAFT_NEST ✨\n\n🛍️ Product: ${pName}\n💰 Price: ${pPrice}\n\nOur products are available in high quality and at an affordable price. 🎨`,
-        url: webUrl
-    };
+    // ইমেজ লিংক সহ প্রিমিয়াম মেসেজ কিউ (হোয়াটসঅ্যাপে ইমেজ প্রিভিউ শো করার মাস্টার ট্রিক)
+    const richShareText = `✨ *BR_CRAFT_NEST* ✨\n\nCheck out this beautiful handmade creation!\n\n🛍️ *Product:* ${pName}\n💰 *Price:* ${pPrice}\n\nOur products are available in high quality and at an affordable price. 🎨\n\n📸 *Product Image Preview:* ${currentImgUrl}\n\n🔗 *Shop Link:* ${webUrl}`;
 
-    if (navigator.share) {
-        navigator.share(shareData)
-        .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing', error));
-    } else {
-        const fallbackText = encodeURIComponent(`${shareData.text}\n\nView Image: ${currentImgUrl}\nShop Link: ${webUrl}`);
-        window.open(`https://wa.me/?text=${fallbackText}`, '_blank');
-    }
+    // সরাসরি রেডিমেড ইমেজ প্রিভিউ লিংক জেনারেট করে হোয়াটসঅ্যাপ এ রিডাইরেক্ট করা হলো
+    const fallbackUrl = `https://wa.me/?text=${encodeURIComponent(richShareText)}`;
+    window.open(fallbackUrl, '_blank');
 }
 
 function sendWhatsAppOrder() {
