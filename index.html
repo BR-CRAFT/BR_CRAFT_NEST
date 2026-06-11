@@ -117,6 +117,16 @@ opacity: 1;
 transition: opacity 0.4s ease-in-out;
 padding: 20px;
 }
+.splash-welcome {
+font-size: 24px;
+font-weight: 900;
+color: #ffb347;
+letter-spacing: 4px;
+margin-bottom: 10px;
+text-transform: uppercase;
+text-shadow: 0 0 10px rgba(255, 179, 71, 0.5);
+animation: smoothFadePulse 1.5s ease-in-out infinite;
+}
 .splash-logo {
 font-size: 32px;
 font-weight: 800;
@@ -139,7 +149,7 @@ max-width: 300px;
 line-height: 1.5;
 }
 
-/* Header Config with Video Background Support */
+/* Header Config */
 .header{
 position:sticky;
 top:0;
@@ -160,8 +170,6 @@ border-bottom: 2px solid rgba(255, 51, 102, 0.3);
 letter-spacing: 1px;
 overflow: hidden;
 }
-
-/* Background Video Styling */
 .header-video-bg {
 position: absolute;
 top: 50%;
@@ -174,7 +182,6 @@ z-index: 1;
 pointer-events: none;
 opacity: 0.75;
 }
-
 .header-logo {
 width: 35px;
 height: 35px;
@@ -188,7 +195,7 @@ z-index: 10;
 text-shadow: 0 2px 10px rgba(0,0,0,0.8);
 }
 
-/* RUNNING TEXT (MARQUEE) AREA */
+/* RUNNING TEXT AREA */
 .running-text-container {
 width: 100%;
 background: rgba(255, 51, 102, 0.15);
@@ -215,7 +222,6 @@ padding-left: 100%;
 100% { transform: translate3d(-100%, 0, 0); }
 }
 
-/* Page Hiding Logic */
 .page {
 display: none !important;
 }
@@ -223,34 +229,35 @@ display: none !important;
 display: block !important;
 }
 
-/* Welcome Box */
+/* Welcome Box on Products Page */
 .welcome-box {
-margin: 25px 18px;
-padding: 30px 22px;
-border-radius: 24px;
-background: rgba(255, 255, 255, 0.05);
-border: 2px solid rgba(255, 51, 102, 0.4);
+margin: 20px 12px 10px 12px;
+padding: 16px 15px;
+border-radius: 20px;
+background: rgba(255, 255, 255, 0.04);
+border: 1px solid rgba(255, 51, 102, 0.3);
 text-align:center;
 color: white;
-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 .welcome-box h2{
-margin-bottom:15px;
-font-size: 24px;
+margin-bottom: 4px;
+font-size: 20px;
 color: #ffb347;
-text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 font-weight: 800;
 }
 .welcome-box p{
-line-height:1.8;
-font-size:15.5px;
-color: #ffffff;
-font-weight: 500;
+font-size: 12.5px;
+color: #33ccff;
+font-weight: 600;
+letter-spacing: 0.5px;
+text-shadow: 0 0 8px rgba(51, 204, 255, 0.3);
 }
 
-/* Products Layout */
+/* Products Layout Grid Config */
 .products-wrapper {
-padding: 18px;
+padding: 12px 10px;
 display: flex;
 flex-direction: column;
 gap: 24px;
@@ -258,17 +265,19 @@ gap: 24px;
 .products-grid {
 display: grid;
 grid-template-columns: repeat(2, 1fr);
-gap: 14px;
+gap: 10px;
 width: 100%;
 }
+
+/* PRODUCT CARD BASE */
 .product-card {
 width: 100%;
-height: 200px;
+height: 270px;
 border-radius: 20px;
-padding: 12px;
+padding: 14px 12px;
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: space-between;
 align-items: center;
 text-align: center;
 cursor: pointer;
@@ -278,9 +287,74 @@ box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 transition: all 0.2s ease;
 color: white;
 overflow: hidden;
+position: relative;
+user-select: none;
 }
 .product-card:active {
 transform: scale(0.96);
+}
+
+/* TOUCH SLIDER INNER ENGINE */
+.card-slider-container {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+}
+.card-slide {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0;
+transition: opacity 0.4s ease-in-out;
+z-index: 1;
+}
+.card-slide.active-slide {
+opacity: 1;
+z-index: 2;
+}
+
+/* ওভারলে শেড এফেক্ট */
+.card-slider-overlay {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 35%; 
+background: linear-gradient(to top, rgba(13, 5, 20, 0.95) 0%, rgba(13, 5, 20, 0.5) 60%, rgba(0, 0, 0, 0) 100%);
+z-index: 3;
+pointer-events: none;
+}
+
+/* লেখা নিচে বামে ফিক্সড */
+.card-slider-content {
+position: absolute;
+bottom: 8px; 
+left: 14px; 
+width: calc(100% - 28px);
+z-index: 4;
+pointer-events: none;
+display: flex;
+flex-direction: column;
+align-items: flex-start; 
+text-align: left;
+}
+
+/* নরমালসি কার্ড টেক্সট সেটিংস */
+.normal-card-content {
+width: 100%;
+margin-top: auto; 
+margin-bottom: -4px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+text-align: left;
+z-index: 4;
 }
 
 /* 8 NUMBER SPECIAL STATIC CARD */
@@ -289,9 +363,8 @@ grid-column: span 2;
 height: 380px;
 cursor: default;
 margin-top: 10px;
+justify-content: center;
 }
-
-/* Slider Containers */
 .slider-container {
 width: 100%;
 overflow: hidden;
@@ -302,7 +375,6 @@ box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 height: 340px;
 border-radius: 22px;
 }
-
 .slider-img-about, .slider-img-8 {
 width: 100%;
 height: 100%;
@@ -318,72 +390,141 @@ opacity: 1;
 position: relative;
 }
 
-/* Icons inside 2-Column cards */
+/* Icons inside normal cards */
 .product-card i {
-font-size: 38px;
+font-size: 46px;
 color: #ff9933;
 filter: drop-shadow(0 2px 6px rgba(255,153,51,0.4));
-margin-bottom: 10px;
+margin-top: 25px; 
+margin-bottom: auto;
+z-index: 4;
 }
+
+/* ফন্ট সেটিংস */
 .product-card h3 {
-font-size: 14px;
+font-size: 11.5px; 
 font-weight: 800;
 letter-spacing: 0.3px;
-line-height: 1.3;
+line-height: 1.2;
+color: #ffffff;
 }
 .product-card p {
-font-size: 10px;
+font-size: 8.5px; 
 font-weight: 800;
 background: linear-gradient(45deg, #ff3366, #ff9933);
-padding: 5px 14px;
-border-radius: 12px;
+padding: 3px 9px;
+border-radius: 10px;
 color: white;
 box-shadow: 0 3px 8px rgba(255,51,102,0.25);
 text-transform: uppercase;
-margin-top: 8px;
+margin-top: 3px; 
 }
 
-/* Product Detail Page Styling */
+/* NAME: PRICE ₹ পজিশন */
+.product-card h3.item-title {
+font-size: 11.5px; 
+color: #ffffff;
+font-weight: 800;
+text-transform: uppercase;
+}
+.product-card p.item-price {
+font-size: 10px; 
+background: none !important;
+color: #38ef7d !important;
+box-shadow: none !important;
+padding: 0;
+margin-top: 1px;
+font-weight: 800;
+letter-spacing: 0.3px;
+text-shadow: 0 0 6px rgba(56, 239, 125, 0.4);
+}
+
+/* ==========================================================================
+   ৩ নম্বর পেজ: প্রোডাক্ট ডিটেইল লেআউট
+   ========================================================================== */
 .detail-container {
-padding: 20px 18px;
+padding: 20px 14px;
 color: white;
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 22px;
+gap: 16px;
 }
+
+/* মূল বড় ইমেজ হোল্ডার */
 .main-img-holder {
 width: 100%;
-height: 350px;
-border-radius: 26px;
+height: 420px; 
+border-radius: 28px;
 overflow: hidden;
 border: 2px solid #33ccff;
 box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+position: relative; 
+user-select: none;
 }
-.main-img-holder img {
+.main-img-holder img#main-product-view {
 width: 100%;
 height: 100%;
 object-fit: cover;
+pointer-events: none;
 }
+
+/* গ্যালারি গ্রিড: বড় ছবির ভেতরে নিচে বাঁদিকের কোণায় (Bottom Left) */
 .gallery-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 14px;
-width: 100%;
+position: absolute;
+bottom: 12px;
+left: 12px;
+display: flex;
+gap: 6px;
+z-index: 10;
+width: auto;
 }
+
+/* ৪টি ছোট ছবির সাইজ ৫২px */
 .gallery-grid img {
-width: 100%;
-height: 90px;
+width: 52px;
+height: 52px;
 object-fit: cover;
-border-radius: 16px;
-border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 10px;
+border: 2px solid rgba(255, 255, 255, 0.6);
 cursor: pointer;
-transition: transform 0.2s;
+transition: all 0.2s ease;
+box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+background: rgba(0,0,0,0.2);
 }
-.gallery-grid img:active {
-transform: scale(0.92);
+.gallery-grid img.active-thumb {
 border-color: #ff3366;
+box-shadow: 0 0 12px #ff3366;
 }
+
+/* শেয়ার বোতামটি নিচে ডানদিকের কোণায় (Bottom Right) */
+.detail-share-btn {
+position: absolute;
+bottom: 12px;
+right: 12px;
+width: 48px;
+height: 48px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.25);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+border: 2px solid rgba(255, 255, 255, 0.6);
+color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 18px;
+z-index: 10;
+cursor: pointer;
+box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+transition: all 0.2s ease;
+}
+.detail-share-btn:active {
+transform: scale(0.9);
+background: #ff3366;
+border-color: #fff;
+}
+
 .info-box {
 width: 100%;
 text-align: center;
@@ -394,9 +535,9 @@ border-radius: 26px;
 box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 .info-box h2 {
-font-size: 26px;
+font-size: 22px;
 color: #fff;
-margin-bottom: 8px;
+margin-bottom: 4px;
 font-weight: 800;
 }
 .info-box .price {
@@ -406,6 +547,53 @@ font-weight: 800;
 margin-bottom: 18px;
 text-shadow: 0 0 10px rgba(56, 239, 125, 0.3);
 }
+
+/* মিটার ও প্রাইস সিলেকশন বক্স ডিজাইন */
+.options-selector-container {
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-bottom: 20px;
+text-align: left;
+}
+.option-label-box {
+width: 100%;
+background: rgba(255, 255, 255, 0.04);
+border: 1px solid rgba(51, 204, 255, 0.2);
+padding: 14px 16px;
+border-radius: 16px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+.option-label-box input[type="radio"] {
+accent-color: #ff3366;
+width: 18px;
+height: 18px;
+cursor: pointer;
+margin-right: 12px;
+}
+.option-label-box .option-text {
+font-size: 14px;
+font-weight: 700;
+color: #ffffff;
+flex-grow: 1;
+}
+.option-label-box .option-price-tag {
+font-size: 15px;
+font-weight: 800;
+color: #38ef7d;
+text-shadow: 0 0 6px rgba(56, 239, 125, 0.2);
+}
+.option-label-box.selected-box {
+border-color: #ff3366;
+background: rgba(255, 51, 102, 0.08);
+box-shadow: 0 0 10px rgba(255, 51, 102, 0.2);
+}
+
 .buy-btn {
 width: 100%;
 background: linear-gradient(135deg, #25d366, #128c7e);
@@ -428,9 +616,9 @@ transition: transform 0.2s;
 transform: scale(0.96);
 }
 
-/* About Layout with Minimized Margins */
+/* About Layout Sequence */
 .about{
-padding: 0px 18px 25px 18px; /* ওপরে প্যাডিং একদম ০ করে দেওয়া হলো */
+padding: 10px 18px 25px 18px;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -439,7 +627,7 @@ min-height: calc(100vh - 220px);
 .about-box{
 background: transparent !important;
 border: none !important;
-padding: 0px 10px; /* প্যাডিং ০ করে স্পেস কমানো হলো */
+padding: 5px 10px;
 color: white;
 text-align:center;
 box-shadow: none !important;
@@ -448,152 +636,29 @@ flex-direction: column;
 position: relative;
 }
 
-/* Social media layout sequence - Pulled way up */
-.social {
-order: 1;
-display:flex;
-flex-direction:column;
-max-width:350px;
-margin: 0 auto 0 auto; /* ওপরে ফাঁকা জায়গা (Margin) পুরোপুরি মুছে ফেলা হলো */
-width: 100%;
-}
+/* Flex layout sequence elements */
+.social { order: 1; display:flex; flex-direction:column; max-width:350px; margin: 15px auto 0 auto; width: 100%; }
+.shop-section-container { order: 2; margin-top: 25px; display: flex; flex-direction: column; align-items: center; width: 100%; position: relative; }
+.about-mini-slider { order: 3; width: 100%; max-width: 350px; height: 210px; margin: 25px auto 0 auto; border-radius: 20px; overflow: hidden; border: 2px solid #33ccff; box-shadow: 0 8px 25px rgba(0,0,0,0.4); position: relative; cursor: default; }
+.about-box h2{ order: 4; margin-top: 30px; margin-bottom:12px; font-size: 28px; color: #33ccff; font-weight: 800; text-shadow: 0 2px 10px rgba(51, 204, 255, 0.4); }
+.about-box p{ order: 5; line-height: 1.9; font-size: 16px; color: #e0d5ed; margin-bottom: 20px; }
 
-.main-follow-title {
-font-size: 20px;
-font-weight: 800;
-color: #ff3366;
-letter-spacing: 1px;
-text-transform: uppercase;
-margin-top: 5px; /* হেডারের ঠিক নিচ থেকে শুরু করার জন্য মিনিমাম ৫পিক্সেল মার্জিন */
-margin-bottom: 15px;
-text-shadow: 0 0 12px rgba(255, 51, 102, 0.6);
-}
+.shop-section-container .rotate-banner { height: 25px; margin-top: 0px; margin-bottom: 5px; font-size: 13px; font-weight: bold; color: #ffb347; text-transform: uppercase; letter-spacing: 1.5px; text-shadow: 0 1px 5px rgba(0,0,0,0.5); }
+.shop-pointer { background: linear-gradient(135deg, #ff3366, #ff9933); padding: 16px 20px; border-radius: 18px; display: flex; justify-content: center; align-items: center; gap: 12px; color: #fff; font-weight: 800; font-size: 16px; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4); animation: pulseBtn 1.5s infinite alternate ease-in-out; border: 1px solid rgba(255,255,255,0.2); width: 100%; max-width: 350px; }
+@keyframes pulseBtn { 0% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4); } 100% { transform: scale(1.04); box-shadow: 0 10px 30px rgba(255, 51, 102, 0.7); } }
+.shop-pointer i { font-size: 20px; animation: bounceIcon 0.6s infinite alternate; }
+@keyframes bounceIcon { 0% { transform: translateX(0); } 100% { transform: translateX(6px); } }
 
-.shop-section-container {
-order: 2;
-margin-top: 25px;
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 100%;
-position: relative;
-}
-.shop-section-container .rotate-banner {
-height: 25px;
-margin-top: 0px;
-margin-bottom: 5px;
-font-size: 13px;
-font-weight: bold;
-color: #ffb347;
-text-transform: uppercase;
-letter-spacing: 1.5px;
-text-shadow: 0 1px 5px rgba(0,0,0,0.5);
-}
-
-.shop-pointer {
-background: linear-gradient(135deg, #ff3366, #ff9933);
-padding: 16px 20px;
-border-radius: 18px;
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 12px;
-color: #fff;
-font-weight: 800;
-font-size: 16px;
-text-transform: uppercase;
-cursor: pointer;
-box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
-animation: pulseBtn 1.5s infinite alternate ease-in-out;
-border: 1px solid rgba(255,255,255,0.2);
-width: 100%;
-max-width: 350px;
-}
-@keyframes pulseBtn {
-0% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4); }
-100% { transform: scale(1.04); box-shadow: 0 10px 30px rgba(255, 51, 102, 0.7); }
-}
-.shop-pointer i {
-font-size: 20px;
-animation: bounceIcon 0.6s infinite alternate;
-}
-@keyframes bounceIcon {
-0% { transform: translateX(0); }
-100% { transform: translateX(6px); }
-}
-
-/* ABOUT PAGE MINI SLIDER */
-.about-mini-slider {
-order: 3;
-width: 100%;
-max-width: 350px;
-height: 210px;
-margin: 25px auto 0 auto;
-border-radius: 20px;
-overflow: hidden;
-border: 2px solid #33ccff;
-box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-position: relative;
-cursor: default;
-}
-
-/* About Us Header and Paragraph */
-.about-box h2{
-order: 4;
-margin-top: 30px;
-margin-bottom:12px;
-font-size: 28px;
-color: #33ccff;
-font-weight: 800;
-text-shadow: 0 2px 10px rgba(51, 204, 255, 0.4);
-}
-.about-box p{
-order: 5;
-line-height: 1.9;
-font-size: 16px;
-color: #e0d5ed;
-margin-bottom: 20px;
-}
-
-.rotate-banner {
-font-size: 12px;
-color: #ffb347;
-font-weight: bold;
-text-transform: uppercase;
-letter-spacing: 1px;
-margin-bottom: 4px;
-margin-top: 10px;
-height: 18px;
-display: flex;
-justify-content: center;
-align-items: center;
-transition: opacity 0.2s ease-in-out;
-text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-}
-.social a{
-text-decoration:none;
-color:white;
-padding: 15px;
-border-radius: 20px;
-font-weight:700;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:14px;
-transition: all 0.3s ease;
-box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-font-size: 16px;
-border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.social a:active{
-transform:scale(0.96);
-}
+.main-follow-title { font-size: 20px; font-weight: 800; color: #ff3366; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px; text-shadow: 0 0 12px rgba(255, 51, 102, 0.6); }
+.rotate-banner { font-size: 12px; color: #ffb347; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; margin-top: 10px; height: 18px; display: flex; justify-content: center; align-items: center; transition: opacity 0.2s ease-in-out; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+.social a{ text-decoration:none; color:white; padding: 15px; border-radius: 20px; font-weight:700; display:flex; justify-content:center; align-items:center; gap:14px; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(0,0,0,0.3); font-size: 16px; border: 1px solid rgba(255, 255, 255, 0.1); }
+.social a:active{ transform:scale(0.96); }
 .fb{ background: linear-gradient(135deg, #1877F2, #0053bf); }
 .insta{ background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
 .threads{ background: linear-gradient(135deg, #111, #222); }
 .youtube{ background: linear-gradient(135deg, #ff0000, #c40000); }
 
-/* Bottom Navigation Bar */
+/* Bottom Nav Bar */
 .bottom-nav{
 position:fixed;
 bottom:0;
@@ -624,18 +689,9 @@ height: 100%;
 justify-content: center;
 font-weight: 700;
 }
-.nav-btn i{
-font-size:24px;
-}
-.nav-btn.nav-active {
-color: #fff;
-text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-}
-.nav-btn.nav-active i {
-transform: scale(1.15);
-color: #ff3366;
-filter: drop-shadow(0 0 8px #ff3366);
-}
+.nav-btn i{ font-size:24px; }
+.nav-btn.nav-active { color: #fff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+.nav-btn.nav-active i { transform: scale(1.15); color: #ff3366; filter: drop-shadow(0 0 8px #ff3366); }
 </style>
 </head>
 <body>
@@ -647,6 +703,7 @@ filter: drop-shadow(0 0 8px #ff3366);
 </div>
 
 <div id="splash">
+<div class="splash-welcome">✨ WELCOME ✨</div>
 <div class="splash-logo">BR_CRAFT_NEST</div>
 <div class="splash-sub">All types of unique handmade crafts are available here!</div>
 </div>
@@ -660,7 +717,7 @@ filter: drop-shadow(0 0 8px #ff3366);
 </div>
 
 <div class="running-text-container">
-<div class="marquee-content">
+<div class="marquee-content" id="main-marquee">
 We sell unique handmade products like handmade key rings, mobile rings, roses, bouquets and much more... ✨
 </div>
 </div>
@@ -669,24 +726,22 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 <div class="about">
 <div class="about-box">
 
+<div class="entry-welcome-title">✨ WELCOME ✨</div>
+
 <div class="social">
 <div class="main-follow-title">✨ Follow Us On Social Media ✨</div>
-
 <div class="rotate-banner" id="fb-switcher">Follow Us</div>
 <a class="fb" href="https://www.facebook.com/share/1L1JdGiYyW/?mibextid=wwXIfr" target="_blank">
 <i class="fab fa-facebook-f"></i> Facebook
 </a>
-
 <div class="rotate-banner" id="insta-switcher">Follow Us</div>
 <a class="insta" href="https://www.instagram.com/br_craft_nest?igsh=dm5iYnk0Z3AzYWk=" target="_blank">
 <i class="fab fa-instagram"></i> Instagram
 </a>
-
 <div class="rotate-banner" id="threads-switcher">Follow Us</div>
 <a class="threads" href="https://www.threads.com/@br_craft_nest?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
 <i class="fa-brands fa-threads"></i> Threads
 </a>
-
 <div class="rotate-banner" id="yt-switcher">Subscribe Us</div>
 <a class="youtube" href="https://www.youtube.com/@br_craft_nest" target="_blank">
 <i class="fab fa-youtube"></i> YouTube
@@ -723,56 +778,72 @@ Follow us on social media for updates and new announcements!
 <div id="products" class="page">
 <div class="welcome-box">
 <h2>🧵 Handmade Craft Collection</h2>
-<p>
-We are preparing a beautiful collection of handmade craft products.
-Our unique creations will be available very soon.
-Stay tuned for exciting new arrivals.
-</p>
+<p>✨ Our exclusive handmade creations are launching very soon! ✨</p>
 </div>
 
 <div class="products-wrapper">
 <div class="products-grid">
 
-<div class="product-card" onclick="comingSoon()">
-<i class="fas fa-scissors"></i>
-<h3>Handmade Craft</h3>
-<p>Coming Soon</p>
+<div class="product-card touch-slider-card" id="card-1" data-current="0" onclick="openProductDetail('HANDMADE GAJRA (pure wool)(25 meters)', 'Rs. 61.00', '1a.jpeg', '1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg')">
+  <div class="card-slider-container">
+    <img class="card-slide active-slide" src="1a.jpeg" alt="Gajra 1">
+    <img class="card-slide" src="1b.jpeg" alt="Gajra 2">
+    <img class="card-slide" src="1c.jpeg" alt="Gajra 3">
+    <img class="card-slide" src="1d.jpeg" alt="Gajra 4">
+    <div class="card-slider-overlay"></div>
+  </div>
+  <div class="card-slider-content">
+    <h3 class="item-title">GAJRA</h3>
+    <p class="item-price">Rs. 61.00</p>
+  </div>
 </div>
 
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-paint-brush"></i>
-<h3>Unique Designs</h3>
-<p>Coming Soon</p>
+<div class="normal-card-content">
+  <h3>Unique Designs</h3>
+  <p>Coming Soon</p>
+</div>
 </div>
 
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-lightbulb"></i>
-<h3>Creative Items</h3>
-<p>Coming Soon</p>
+<div class="normal-card-content">
+  <h3>Creative Items</h3>
+  <p>Coming Soon</p>
+</div>
 </div>
 
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-gift"></i>
-<h3>Gift Products</h3>
-<p>Coming Soon</p>
+<div class="normal-card-content">
+  <h3>Gift Products</h3>
+  <p>Coming Soon</p>
+</div>
 </div>
 
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-wand-magic-sparkles"></i>
-<h3>Custom Creations</h3>
-<p>Coming Soon</p>
+<div class="normal-card-content">
+  <h3>Custom Creations</h3>
+  <p>Coming Soon</p>
+</div>
 </div>
 
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-palette"></i>
-<h3>Premium Art</h3>
-<p>Coming Soon</p>
+<div class="normal-card-content">
+  <h3>Premium Art</h3>
+  <p>Coming Soon</p>
+</div>
 </div>
 
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-gem"></i>
-<h3>Creative Creations</h3>
-<p>Coming Soon</p>
+<div class="normal-card-content">
+  <h3>Creative Creations</h3>
+  <p>Coming Soon</p>
+</div>
 </div>
 
 <div class="product-card static-card">
@@ -789,21 +860,41 @@ Stay tuned for exciting new arrivals.
 
 <div id="product-detail" class="page">
 <div class="detail-container">
-<div class="main-img-holder">
-<img id="main-product-view" src="logo.jpeg" alt="Main View">
-</div>
-<div class="gallery-grid">
-<img id="thumb1" src="logo.jpeg" alt="Thumb 1" onclick="changeMainView(this.src)">
-<img id="thumb2" src="logo.jpeg" alt="Thumb 2" onclick="changeMainView(this.src)">
-<img id="thumb3" src="logo.jpeg" alt="Thumb 3" onclick="changeMainView(this.src)">
-</div>
-<div class="info-box">
-<h2 id="detail-name">Product Name</h2>
-<div class="price" id="detail-price">Rs. 0.00</div>
-<button class="buy-btn" onclick="sendWhatsAppOrder()">
-<i class="fa-brands fa-whatsapp"></i> Buy Now via WhatsApp
-</button>
-</div>
+  <div class="main-img-holder" id="detail-swipe-zone">
+    <img id="main-product-view" src="logo.jpeg" alt="Main View">
+    <div class="gallery-grid">
+      <img id="thumb1" src="logo.jpeg" alt="Thumb 1" onclick="manualDetailView(0)">
+      <img id="thumb2" src="logo.jpeg" alt="Thumb 2" onclick="manualDetailView(1)">
+      <img id="thumb3" src="logo.jpeg" alt="Thumb 3" onclick="manualDetailView(2)">
+      <img id="thumb4" src="logo.jpeg" alt="Thumb 4" onclick="manualDetailView(3)">
+    </div>
+    <button class="detail-share-btn" onclick="triggerWebShare(event)">
+      <i class="fa-solid fa-share-nodes"></i>
+    </button>
+  </div>
+  
+  <div class="info-box">
+    <h2 id="detail-name">Product Name</h2>
+    <div class="price" id="detail-price">Rs. 61.00</div>
+    
+    <div class="options-selector-container">
+      <label class="option-label-box" id="label-opt1" onclick="selectMeterOption('opt1', '25 meters', '₹61')">
+        <input type="radio" id="opt1" name="meter_option" value="25 meters">
+        <span class="option-text">25 Meters Pack</span>
+        <span class="option-price-tag">₹61</span>
+      </label>
+      
+      <label class="option-label-box" id="label-opt2" onclick="selectMeterOption('opt2', '12 meters', '₹40')">
+        <input type="radio" id="opt2" name="meter_option" value="12 meters">
+        <span class="option-text">12 Meters Pack</span>
+        <span class="option-price-tag">₹40</span>
+      </label>
+    </div>
+
+    <button class="buy-btn" onclick="sendWhatsAppOrder()">
+      <i class="fa-brands fa-whatsapp"></i> Buy Now via WhatsApp
+    </button>
+  </div>
 </div>
 </div>
 
@@ -819,14 +910,19 @@ Stay tuned for exciting new arrivals.
 </div>
 
 <script>
+const originalMarqueeText = "We sell unique handmade products like handmade key rings, mobile rings, roses, bouquets and much more... ✨";
+const productPageMarqueeText = "Our products are available in high quality and at an affordable price.";
+let pendingMarqueeText = "";
+
+let selectedMeterSize = "";
+let selectedMeterPrice = "";
+
 // Splash Screen handling
 setTimeout(() => {
     const splash = document.getElementById('splash');
     if (splash) {
         splash.style.opacity = '0';
-        setTimeout(() => {
-            splash.style.display = 'none';
-        }, 400);
+        setTimeout(() => { splash.style.display = 'none'; }, 400);
     }
 }, 1200);
 
@@ -864,7 +960,6 @@ setTimeout(() => {
     }, 2000);
 }, 1500);
 
-// 2 Second Fixed Banner Text Rotation Engine
 const shopPhrases = ["Shop Now", "Order Now", "Sale Is Live", "Handmade Products"];
 let shopIdx = 0;
 setInterval(() => {
@@ -901,18 +996,83 @@ if(slides8.length > 0) {
     }, 2500);
 }
 
-// Interactive Touch Pulse Effect
-window.addEventListener('click', (e) => {
-    if (e.target.closest('.bottom-nav')) return;
-    const pulse = document.createElement('div');
-    pulse.className = 'touch-pulse';
-    pulse.style.left = `${e.clientX}px`;
-    pulse.style.top = `${e.clientY}px`;
-    document.body.appendChild(pulse);
-    pulse.addEventListener('animationend', () => { pulse.remove(); });
+// TOUCH / SWIPE AND AUTOMATIC SLIDER ENGINE
+function setCardSlide(cardId, index) {
+    const card = document.getElementById(cardId);
+    if (!card) return;
+    const slides = card.querySelectorAll('.card-slide');
+    if (slides.length === 0) return;
+    
+    slides.forEach(slide => slide.classList.remove('active-slide'));
+    
+    let targetIndex = (index + slides.length) % slides.length;
+    slides[targetIndex].classList.add('active-slide');
+    card.setAttribute('data-current', targetIndex);
+}
+
+function nextCardSlideAuto(cardId) {
+    const card = document.getElementById(cardId);
+    if (!card) return;
+    let current = parseInt(card.getAttribute('data-current') || '0');
+    setCardSlide(cardId, current + 1);
+}
+
+let autoInterval1 = setInterval(() => { nextCardSlideAuto('card-1'); }, 2500);
+
+document.querySelectorAll('.touch-slider-card').forEach(card => {
+    let startX = 0;
+    let endX = 0;
+    let isSwiping = false;
+    const cardId = card.id;
+
+    card.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isSwiping = false;
+        if (cardId === 'card-1') clearInterval(autoInterval1);
+    }, { passive: true });
+
+    card.addEventListener('touchmove', (e) => {
+        let currentX = e.touches[0].clientX;
+        if (Math.abs(currentX - startX) > 10) {
+            isSwiping = true;
+        }
+    }, { passive: true });
+
+    card.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        let current = parseInt(card.getAttribute('data-current') || '0');
+        
+        if (startX - endX > 40) {
+            setCardSlide(cardId, current + 1);
+        } else if (endX - startX > 40) {
+            setCardSlide(cardId, current - 1);
+        }
+
+        if (cardId === 'card-1') {
+            clearInterval(autoInterval1);
+            autoInterval1 = setInterval(() => { nextCardSlideAuto('card-1'); }, 2500);
+        }
+    }, { passive: true });
+
+    card.addEventListener('click', (e) => {
+        if (isSwiping) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+    });
 });
 
-// Main Page Navigation Routing
+const marqueeElement = document.getElementById('main-marquee');
+if (marqueeElement) {
+    marqueeElement.addEventListener('animationiteration', () => {
+        if (pendingMarqueeText !== "") {
+            marqueeElement.innerText = pendingMarqueeText;
+            pendingMarqueeText = ""; 
+        }
+    });
+}
+
+// Navigation Routing 
 function showPage(page){
     const abPage = document.getElementById('about');
     const prPage = document.getElementById('products');
@@ -934,6 +1094,12 @@ function showPage(page){
         targetPage.classList.add('active');
     }
 
+    if (page === 'product-detail') {
+        pendingMarqueeText = productPageMarqueeText;
+    } else {
+        pendingMarqueeText = originalMarqueeText;
+    }
+
     if(page === 'about' || page === 'products' || page === 'product-detail') {
         document.getElementById('btn-about').classList.remove('nav-active');
         document.getElementById('btn-products').classList.remove('nav-active');
@@ -943,42 +1109,156 @@ function showPage(page){
             document.getElementById('btn-products').classList.add('nav-active');
         }
     }
+    if (page !== 'product-detail') {
+        stopDetailSlider();
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Product Detail Setup
-let activeProductName = "";
-let activeProductPrice = "";
+/* ৩ নম্বর পেজ: স্লাইডার ও সোয়াইপ লজিক */
+let detailImagesArray = [];
+let currentDetailIdx = 0;
+let detailSliderInterval = null;
 
-function openProductDetail(name, price, mainImg, t1, t2, t3) {
-    activeProductName = name;
-    activeProductPrice = price;
-
+function openProductDetail(name, price, mainImg, t1, t2, t3, t4) {
     document.getElementById('detail-name').innerText = name;
     document.getElementById('detail-price').innerText = price;
     
-    document.getElementById('main-product-view').src = mainImg;
+    detailImagesArray = [t1, t2, t3, t4];
+    currentDetailIdx = 0;
+    
+    selectedMeterSize = "";
+    selectedMeterPrice = "";
+    document.querySelectorAll('.option-label-box').forEach(box => box.classList.remove('selected-box'));
+    const rButtons = document.getElementsByName('meter_option');
+    rButtons.forEach(rb => rb.checked = false);
+    
     document.getElementById('thumb1').src = t1;
     document.getElementById('thumb2').src = t2;
     document.getElementById('thumb3').src = t3;
-
-    showPage('product-detail');
-}
-
-function changeMainView(src) {
-    document.getElementById('main-product-view').src = src;
-}
-
-// WhatsApp Order Engine
-function sendWhatsAppOrder() {
-    const myWhatsAppNumber = "YOUR_NUMBER_HERE"; 
+    document.getElementById('thumb4').src = t4;
     
-    const baseMessage = `Hello, I want to buy ${activeProductName} for ${activeProductPrice}.`;
+    updateDetailView(0);
+    showPage('product-detail');
+    startDetailSlider();
+}
+
+function updateDetailView(index) {
+    currentDetailIdx = index;
+    document.getElementById('main-product-view').src = detailImagesArray[currentDetailIdx];
+    
+    for(let i=1; i<=4; i++) {
+        document.getElementById('thumb' + i).classList.remove('active-thumb');
+    }
+    document.getElementById('thumb' + (currentDetailIdx + 1)).classList.add('active-thumb');
+}
+
+function startDetailSlider() {
+    stopDetailSlider();
+    detailSliderInterval = setInterval(() => {
+        let nextIdx = (currentDetailIdx + 1) % detailImagesArray.length;
+        updateDetailView(nextIdx);
+    }, 3000); 
+}
+
+function stopDetailSlider() {
+    if (detailSliderInterval) {
+        clearInterval(detailSliderInterval);
+        detailSliderInterval = null;
+    }
+}
+
+function manualDetailView(index) {
+    updateDetailView(index);
+    startDetailSlider();
+}
+
+const detailSwipeZone = document.getElementById('detail-swipe-zone');
+if (detailSwipeZone) {
+    let detailStartX = 0;
+    let detailEndX = 0;
+
+    detailSwipeZone.addEventListener('touchstart', (e) => {
+        detailStartX = e.touches[0].clientX;
+        stopDetailSlider(); 
+    }, { passive: true });
+
+    detailSwipeZone.addEventListener('touchend', (e) => {
+        detailEndX = e.changedTouches[0].clientX;
+        
+        if (detailStartX - detailEndX > 40) {
+            let nextIdx = (currentDetailIdx + 1) % detailImagesArray.length;
+            updateDetailView(nextIdx);
+        } else if (detailEndX - detailStartX > 40) {
+            let prevIdx = (currentDetailIdx - 1 + detailImagesArray.length) % detailImagesArray.length;
+            updateDetailView(prevIdx);
+        }
+        startDetailSlider(); 
+    }, { passive: true });
+}
+
+function selectMeterOption(radioId, sizeName, priceValue) {
+    document.querySelectorAll('.option-label-box').forEach(box => box.classList.remove('selected-box'));
+    
+    const targetRadio = document.getElementById(radioId);
+    if(targetRadio) {
+        targetRadio.checked = true;
+        document.getElementById('label-' + radioId).classList.add('selected-box');
+    }
+    
+    selectedMeterSize = sizeName;
+    selectedMeterPrice = priceValue;
+    
+    document.getElementById('detail-price').innerText = "Rs. " + priceValue.replace('₹', '') + ".00";
+}
+
+function triggerWebShare(event) {
+    event.stopPropagation();
+    const pName = document.getElementById('detail-name').innerText;
+    const pPrice = document.getElementById('detail-price').innerText;
+    const currentImgUrl = document.getElementById('main-product-view').src;
+    const webUrl = window.location.href;
+
+    const shareData = {
+        title: 'BR_CRAFT_NEST - ' + pName,
+        text: `✨ BR_CRAFT_NEST ✨\n\n🛍️ Product: ${pName}\n💰 Price: ${pPrice}\n\nOur products are available in high quality and at an affordable price. 🎨`,
+        url: webUrl
+    };
+
+    if (navigator.share) {
+        navigator.share(shareData)
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    } else {
+        const fallbackText = encodeURIComponent(`${shareData.text}\n\nView Image: ${currentImgUrl}\nShop Link: ${webUrl}`);
+        window.open(`https://wa.me/?text=${fallbackText}`, '_blank');
+    }
+}
+
+function sendWhatsAppOrder() {
+    if (selectedMeterSize === "" || selectedMeterPrice === "") {
+        alert("Please select a meter option before buying!");
+        return; 
+    }
+
+    const myWhatsAppNumber = "7501977388"; 
+    const productName = document.getElementById('detail-name').innerText;
+    const baseMessage = `Hello BR_CRAFT_NEST, I want to buy:\n\n📦 Product: ${productName}\n📏 Size: ${selectedMeterSize}\n💰 Price: ${selectedMeterPrice}\n\nPlease process my order! ✨`;
+    
     const encryptedText = encodeURIComponent(baseMessage);
     const apiLink = `https://wa.me/${myWhatsAppNumber}?text=${encryptedText}`;
-    
     window.open(apiLink, '_blank');
 }
+
+window.addEventListener('click', (e) => {
+    if (e.target.closest('.bottom-nav') || e.target.closest('.touch-slider-card') || e.target.closest('.gallery-grid') || e.target.closest('.detail-share-btn') || e.target.closest('.option-label-box')) return;
+    const pulse = document.createElement('div');
+    pulse.className = 'touch-pulse';
+    pulse.style.left = `${e.clientX}px`;
+    pulse.style.top = `${e.clientY}px`;
+    document.body.appendChild(pulse);
+    pulse.addEventListener('animationend', () => { pulse.remove(); });
+});
 
 function comingSoon(){
     alert("Our handmade craft products will be available very soon!");
