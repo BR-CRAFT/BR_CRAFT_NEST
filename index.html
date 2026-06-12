@@ -749,14 +749,7 @@ align-items: center;
 gap: 12px; 
 color: #fff; 
 font-weight: 800; 
-font-size: 16px; 
-text-transform: uppercase; 
-cursor: pointer; 
-box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4); 
-animation: pulseBtn 1.5s infinite alternate ease-in-out; 
-border: 1px solid rgba(255,255,255,0.2); 
-width: 100%; 
-}
+font-size: 16px; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4); animation: pulseBtn 1.5s infinite alternate ease-in-out; border: 1px solid rgba(255,255,255,0.2); width: 100%; }
 .shop-pointer i { font-size: 20px; animation: bounceIcon 0.6s infinite alternate; }
 @keyframes bounceIcon { 0% { transform: translateX(0); } 100% { transform: translateX(6px); } }
 
@@ -837,11 +830,11 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 <div class="about">
 <div class="about-box">
 
-<!-- ১. সোশ্যাল মিডিয়া বোতামসমূহ -->
+<!-- ১. সোশ্যাল মিডিয়া বোতামসমূহ (আপনার ফেসবুকের নতুন লিংকটি এখানে আপডেট করা হয়েছে) -->
 <div class="social">
 <div class="main-follow-title">✨ Follow Us On Social Media ✨</div>
 <div class="rotate-banner" id="fb-switcher">Follow Us</div>
-<a class="fb" href="https://www.facebook.com/share/1L1JdGiYyW/?mibextid=wwXIfr" target="_blank">
+<a class="fb" href="https://www.facebook.com/share/1ESCS8mY5Q/?mibextid=wwXIfr" target="_blank">
 <i class="fab fa-facebook-f"></i> Facebook
 </a>
 <div class="rotate-banner" id="insta-switcher">Follow Us</div>
@@ -868,7 +861,7 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 </div>
 </div>
 
-<!-- ③. মিনি স্লাইডার ছবি বক্স -->
+<!-- ③.  মিনি স্লাইডার ছবি বক্স -->
 <div class="about-mini-slider">
 <img src="display.jpeg" class="slider-img-about visible" alt="About Pic 1">
 <img src="display1.jpeg" class="slider-img-about" alt="About Pic 2">
@@ -1010,7 +1003,7 @@ Follow us on social media for updates and new announcements!
     <div class="custom-color-note">(You can choose any color as per your preference)</div>
     <div class="price" id="detail-price">Rs. 61.00</div>
     
-    <!-- ডাইনামিক অপশন কন্টেইনার প্যানেল (Inches এবং 2 Color Combo লজিক সহ) -->
+    <!-- ডাইনামিক অপশন কন্টেইনার প্যানেল -->
     <div class="options-selector-container" id="dynamic-options-panel"></div>
 
     <!-- হোয়াটসঅ্যাপ বাই বোতাম -->
@@ -1034,6 +1027,7 @@ Follow us on social media for updates and new announcements!
 </div>
 
 <script>
+// টপ রানিং টেক্সট ব্যানার ডেটা
 const originalMarqueeText = "We sell unique handmade products like handmade key rings, mobile rings, roses, bouquets and much more... ✨";
 const productPageMarqueeText = "Our products are available in high quality and at an affordable price.";
 let pendingMarqueeText = "";
@@ -1215,7 +1209,7 @@ function showPage(page){
         
         abPage.classList.remove('active');
         prPage.classList.remove('active');
-        dtPage.classList.add('active');
+        dtPage.classList.remove('active');
     }
 
     const targetPage = document.getElementById(page);
@@ -1284,7 +1278,7 @@ function openProductDetail(name, price, mainImg, imageList) {
         galleryContainer.appendChild(thumbImg);
     });
 
-    // ডাইনামিক অপশন সিলেকশন মেকার (Inches এবং 2 Color Combo আপডেট সহ)
+    // ডাইনামিক অপশন সিলেকশন মেকার
     const optionsPanel = document.getElementById('dynamic-options-panel');
     optionsPanel.innerHTML = ""; 
 
