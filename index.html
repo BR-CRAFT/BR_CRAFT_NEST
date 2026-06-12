@@ -563,9 +563,21 @@ box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 .info-box h2 {
 font-size: 21px;
 color: #fff;
-margin-bottom: 4px;
+margin-bottom: 2px;
 font-weight: 800;
 }
+
+/* কাস্টম কালার নোট স্টাইল */
+.custom-color-note {
+font-size: 11.5px;
+color: #ffb347;
+font-weight: 600;
+letter-spacing: 0.5px;
+margin-bottom: 12px;
+text-shadow: 0 0 8px rgba(255, 179, 71, 0.4);
+font-style: italic;
+}
+
 .info-box .price {
 font-size: 23px;
 color: #38ef7d;
@@ -574,7 +586,7 @@ margin-bottom: 18px;
 text-shadow: 0 0 10px rgba(56, 239, 125, 0.3);
 }
 
-/* মিটার ও প্রাইস সিলেকশন বক্স ডিজাইন */
+/* অপশন সিলেক্টর বক্স কন্টেইনার ডিজাইন */
 .options-selector-container {
 width: 100%;
 display: flex;
@@ -643,7 +655,7 @@ transform: scale(0.96);
 }
 
 /* ==========================================================================
-   1ST PAGE: ABOUT US (বোতামগুলো আরও ওপরের দিকে তুলে গ্যাপ কমানো হলো)
+   1ST PAGE: ABOUT US
    ========================================================================== */
 .about{
 padding: 5px 14px 25px 14px; 
@@ -663,7 +675,7 @@ position: relative;
 width: 100%;
 }
 
-/* সোশ্যাল মিডিয়া বক্স - গ্যাপ আরও কমিয়ে ওপরে পুশড */
+/* সোশ্যাল মিডিয়া বক্স */
 .social { 
 display: flex; 
 flex-direction: column; 
@@ -797,12 +809,14 @@ font-weight: 700;
 <div class="shooting-star"></div>
 </div>
 
+<!-- SPLASH SCREEN / ENTRY PAGE -->
 <div id="splash">
 <div class="splash-welcome">✨ WELCOME ✨</div>
 <div class="splash-logo">BR_CRAFT_NEST</div>
 <div class="splash-sub">All types of unique handmade crafts are available here!</div>
 </div>
 
+<!-- HEADER PANEL WITH VIDEO BACKGROUND -->
 <div class="header">
   <video class="header-video-bg" autoplay loop muted playsinline>
     <source src="videoplayback.mov" type="video/mp4">
@@ -811,16 +825,19 @@ font-weight: 700;
   <span>BR_CRAFT_NEST</span>
 </div>
 
+<!-- MARQUEE AREA -->
 <div class="running-text-container">
 <div class="marquee-content" id="main-marquee">
 We sell unique handmade products like handmade key rings, mobile rings, roses, bouquets and much more... ✨
 </div>
 </div>
 
+<!-- 1ST PAGE: ABOUT US -->
 <div id="about" class="page active">
 <div class="about">
 <div class="about-box">
 
+<!-- ১. সোশ্যাল মিডিয়া বোতামসমূহ -->
 <div class="social">
 <div class="main-follow-title">✨ Follow Us On Social Media ✨</div>
 <div class="rotate-banner" id="fb-switcher">Follow Us</div>
@@ -841,6 +858,7 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 </a>
 </div>
 
+<!-- ②. আওয়ার প্রোডাক্টস শপ নাও বোতাম -->
 <div class="shop-section-container">
 <div class="rotate-banner" id="shop-banner-rotator">Shop Now</div>
 <div class="shop-pointer" onclick="showPage('products')">
@@ -850,12 +868,14 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 </div>
 </div>
 
+<!-- ③. মিনি স্লাইডার ছবি বক্স -->
 <div class="about-mini-slider">
 <img src="display.jpeg" class="slider-img-about visible" alt="About Pic 1">
 <img src="display1.jpeg" class="slider-img-about" alt="About Pic 2">
 <img src="logo.jpeg" class="slider-img-about" alt="About Pic 3">
 </div>
 
+<!-- ④. ডেসক্রিপশন টেক্সট এরিয়া -->
 <h2>About Us</h2>
 <p>
 Welcome to BR_CRAFT_NEST.
@@ -868,6 +888,7 @@ Follow us on social media for updates and new announcements!
 </div>
 </div>
 
+<!-- 2ND PAGE: OUR PRODUCTS -->
 <div id="products" class="page">
 <div class="welcome-box">
 <h2>🧵 Handmade Craft Collection</h2>
@@ -877,7 +898,8 @@ Follow us on social media for updates and new announcements!
 <div class="products-wrapper">
 <div class="products-grid">
 
-<div class="product-card touch-slider-card" id="card-1" data-current="0" onclick="openProductDetail('HANDMADE GAJRA (pure wool)(25 meters)', 'Rs. 61.00', '1a.jpeg', '1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg')">
+<!-- 1 NUMBER CHOK / CARD -->
+<div class="product-card touch-slider-card" id="card-1" onclick="openProductDetail('HANDMADE GAJRA', 'Rs. 61.00', '1a.jpeg', ['1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg'])">
   <div class="card-slider-container">
     <img class="card-slide active-slide" src="1a.jpeg" alt="Gajra 1">
     <img class="card-slide" src="1b.jpeg" alt="Gajra 2">
@@ -886,19 +908,26 @@ Follow us on social media for updates and new announcements!
     <div class="card-slider-overlay"></div>
   </div>
   <div class="card-slider-content">
-    <h3 class="item-title">GAJRA</h3>
+    <h3 class="item-title">HANDMADE GAJRA</h3>
     <p class="item-price">Rs. 61.00</p>
   </div>
 </div>
 
-<div class="product-card" onclick="comingSoon()">
-<i class="fas fa-paint-brush"></i>
-<div class="normal-card-content">
-  <h3>Unique Designs</h3>
-  <p>Coming Soon</p>
-</div>
+<!-- 2 NUMBER CHOK / CARD -->
+<div class="product-card touch-slider-card" id="card-2" onclick="openProductDetail('HANDMADE GOPAL DRESSED', 'Rs. 220.00', '2a.jpeg', ['2a.jpeg', '2b.jpeg', '2c.jpeg'])">
+  <div class="card-slider-container">
+    <img class="card-slide active-slide" src="2a.jpeg" alt="Gopal 1">
+    <img class="card-slide" src="2b.jpeg" alt="Gopal 2">
+    <img class="card-slide" src="2c.jpeg" alt="Gopal 3">
+    <div class="card-slider-overlay"></div>
+  </div>
+  <div class="card-slider-content">
+    <h3 class="item-title">HANDMADE GOPAL DRESSED</h3>
+    <p class="item-price">Rs. 220.00</p>
+  </div>
 </div>
 
+<!-- 3 NUMBER CHOK -->
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-lightbulb"></i>
 <div class="normal-card-content">
@@ -907,6 +936,7 @@ Follow us on social media for updates and new announcements!
 </div>
 </div>
 
+<!-- 4 NUMBER CHOK -->
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-gift"></i>
 <div class="normal-card-content">
@@ -915,6 +945,7 @@ Follow us on social media for updates and new announcements!
 </div>
 </div>
 
+<!-- 5 NUMBER CHOK -->
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-wand-magic-sparkles"></i>
 <div class="normal-card-content">
@@ -923,6 +954,7 @@ Follow us on social media for updates and new announcements!
 </div>
 </div>
 
+<!-- 6 NUMBER CHOK -->
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-palette"></i>
 <div class="normal-card-content">
@@ -931,6 +963,7 @@ Follow us on social media for updates and new announcements!
 </div>
 </div>
 
+<!-- 7 NUMBER CHOK -->
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-gem"></i>
 <div class="normal-card-content">
@@ -939,6 +972,7 @@ Follow us on social media for updates and new announcements!
 </div>
 </div>
 
+<!-- 8 NUMBER CARD STAYS STATIC -->
 <div class="product-card static-card">
 <div class="slider-container">
 <img src="display.jpeg" class="slider-img-8 visible" alt="Display 1">
@@ -951,23 +985,21 @@ Follow us on social media for updates and new announcements!
 </div>
 </div>
 
+<!-- 3RD PAGE: DEDICATED PRODUCT DETAIL PAGE -->
 <div id="product-detail" class="page">
 <div class="detail-container" id="detail-view-anchor">
   
+  <!-- ব্যাক বোতাম বার -->
   <div class="detail-back-bar">
     <button class="detail-back-btn" onclick="showPage('products')">
       <i class="fa-solid fa-chevron-left"></i> Back
     </button>
   </div>
 
+  <!-- রাজকীয় ৫২০px ইমেজ হোল্ডার ফ্রেম -->
   <div class="main-img-holder" id="detail-swipe-zone">
     <img id="main-product-view" src="logo.jpeg" alt="Main View">
-    <div class="gallery-grid">
-      <img id="thumb1" src="logo.jpeg" alt="Thumb 1" onclick="manualDetailView(0)">
-      <img id="thumb2" src="logo.jpeg" alt="Thumb 2" onclick="manualDetailView(1)">
-      <img id="thumb3" src="logo.jpeg" alt="Thumb 3" onclick="manualDetailView(2)">
-      <img id="thumb4" src="logo.jpeg" alt="Thumb 4" onclick="manualDetailView(3)">
-    </div>
+    <div class="gallery-grid" id="detail-gallery-container"></div>
     <button class="detail-share-btn" onclick="triggerWebShare(event)">
       <i class="fa-solid fa-share-nodes"></i>
     </button>
@@ -975,22 +1007,13 @@ Follow us on social media for updates and new announcements!
   
   <div class="info-box">
     <h2 id="detail-name">Product Name</h2>
+    <div class="custom-color-note">(You can choose any color as per your preference)</div>
     <div class="price" id="detail-price">Rs. 61.00</div>
     
-    <div class="options-selector-container">
-      <label class="option-label-box" id="label-opt1" onclick="selectMeterOption('opt1', '25 meters', '₹61')">
-        <input type="radio" id="opt1" name="meter_option" value="25 meters">
-        <span class="option-text">25 Meters Pack</span>
-        <span class="option-price-tag">₹61</span>
-      </label>
-      
-      <label class="option-label-box" id="label-opt2" onclick="selectMeterOption('opt2', '12 meters', '₹40')">
-        <input type="radio" id="opt2" name="meter_option" value="12 meters">
-        <span class="option-text">12 Meters Pack</span>
-        <span class="option-price-tag">₹40</span>
-      </label>
-    </div>
+    <!-- ডাইনামিক অপশন কন্টেইনার প্যানেল (Inches এবং 2 Color Combo লজিক সহ) -->
+    <div class="options-selector-container" id="dynamic-options-panel"></div>
 
+    <!-- হোয়াটসঅ্যাপ বাই বোতাম -->
     <button class="buy-btn" onclick="sendWhatsAppOrder()">
       <i class="fa-brands fa-whatsapp"></i> Buy Now via WhatsApp
     </button>
@@ -998,6 +1021,7 @@ Follow us on social media for updates and new announcements!
 </div>
 </div>
 
+<!-- Bottom Nav Bar -->
 <div class="bottom-nav">
 <button id="btn-about" class="nav-btn nav-active" onclick="showPage('about')">
 <i class="fa-solid fa-circle-info"></i>
@@ -1010,7 +1034,6 @@ Follow us on social media for updates and new announcements!
 </div>
 
 <script>
-// টপ রানিং টেক্সট ব্যানার ডেটা
 const originalMarqueeText = "We sell unique handmade products like handmade key rings, mobile rings, roses, bouquets and much more... ✨";
 const productPageMarqueeText = "Our products are available in high quality and at an affordable price.";
 let pendingMarqueeText = "";
@@ -1103,71 +1126,71 @@ function startCard8Slider() {
 }
 startCard8Slider();
 
-// TOUCH / SWIPE AND AUTOMATIC SLIDER ENGINE
-let currentCard1Idx = 0;
-let card1Images = ['1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg'];
-let card1Interval = null;
+// UNIVERSAL DYNAMIC SLIDER ENGINE
+let cardIndices = { 'card-1': 0, 'card-2': 0 };
+let cardIntervals = { 'card-1': null, 'card-2': null };
 
-function startCard1AutoSlide() {
-    stopCard1AutoSlide();
-    card1Interval = setInterval(() => {
-        rotateCard1Slide(1);
+function startCardAutoSlide(cardId) {
+    stopCardAutoSlide(cardId);
+    cardIntervals[cardId] = setInterval(() => {
+        rotateCardSlide(cardId, 1);
     }, 2500);
 }
 
-function stopCard1AutoSlide() {
-    if(card1Interval) clearInterval(card1Interval);
+function stopCardAutoSlide(cardId) {
+    if(cardIntervals[cardId]) clearInterval(cardIntervals[cardId]);
 }
 
-function rotateCard1Slide(direction) {
-    const card1 = document.getElementById('card-1');
-    if(!card1) return;
-    const slides = card1.querySelectorAll('.card-slide');
+function rotateCardSlide(cardId, direction) {
+    const card = document.getElementById(cardId);
+    if(!card) return;
+    const slides = card.querySelectorAll('.card-slide');
+    if(slides.length === 0) return;
     
-    slides[currentCard1Idx].classList.remove('active-slide');
-    currentCard1Idx = (currentCard1Idx + direction + card1Images.length) % card1Images.length;
-    slides[currentCard1Idx].classList.add('active-slide');
+    slides[cardIndices[cardId]].classList.remove('active-slide');
+    cardIndices[cardId] = (cardIndices[cardId] + direction + slides.length) % slides.length;
+    slides[cardIndices[cardId]].classList.add('active-slide');
 }
 
-startCard1AutoSlide();
+startCardAutoSlide('card-1');
+startCardAutoSlide('card-2');
 
-// ১ নম্বর বক্স টাচ সোয়াইপ হ্যান্ডলার লজিক
-const card1Element = document.getElementById('card-1');
-if(card1Element) {
-    let card1StartX = 0;
-    let card1EndX = 0;
-    let isCardSwiping = false;
+document.querySelectorAll('.touch-slider-card').forEach(card => {
+    let startX = 0;
+    let endX = 0;
+    let isSwiping = false;
+    const cardId = card.id;
 
-    card1Element.addEventListener('touchstart', (e) => {
-        card1StartX = e.touches[0].clientX;
-        isCardSwiping = false;
-        stopCard1AutoSlide();
+    card.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isSwiping = false;
+        stopCardAutoSlide(cardId);
     }, { passive: true });
 
-    card1Element.addEventListener('touchmove', (e) => {
+    card.addEventListener('touchmove', (e) => {
         let currentX = e.touches[0].clientX;
-        if (Math.abs(currentX - card1StartX) > 10) {
-            isCardSwiping = true;
+        if (Math.abs(currentX - startX) > 10) {
+            isSwiping = true;
         }
     }, { passive: true });
 
-    card1Element.addEventListener('touchend', (e) => {
-        card1EndX = e.changedTouches[0].clientX;
-        if (card1StartX - card1EndX > 40) {
-            rotateCard1Slide(1);
-        } else if (card1EndX - card1StartX > 40) {
-            rotateCard1Slide(-1);
+    card.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        if (startX - endX > 40) {
+            rotateCardSlide(cardId, 1);
+        } else if (endX - startX > 40) {
+            rotateCardSlide(cardId, -1);
         }
-        startCard1AutoSlide();
+        startCardAutoSlide(cardId);
     }, { passive: true });
 
-    card1Element.addEventListener('click', (e) => {
-        if (isCardSwiping) {
+    card.addEventListener('click', (e) => {
+        if (isSwiping) {
             e.stopPropagation();
             e.preventDefault();
         }
     });
-}
+});
 
 const marqueeElement = document.getElementById('main-marquee');
 if (marqueeElement) {
@@ -1192,7 +1215,7 @@ function showPage(page){
         
         abPage.classList.remove('active');
         prPage.classList.remove('active');
-        dtPage.classList.remove('active');
+        dtPage.classList.add('active');
     }
 
     const targetPage = document.getElementById(page);
@@ -1220,7 +1243,7 @@ function showPage(page){
         stopDetailSlider();
     }
     
-    // টার্গেটেড স্ক্রোলিং সলিউশন
+    // টার্গেটেড স্ক্রোলিং সリューション
     if (page === 'product-detail') {
         setTimeout(() => {
             const anchor = document.getElementById('detail-view-anchor');
@@ -1233,28 +1256,65 @@ function showPage(page){
     }
 }
 
-/* ৩ নম্বর পেজ: স্লাইডার ও সোয়াইপ লজিক */
+/* ৩ নম্বর পেজ: স্লাইডার ও ডাইনামিক রেন্ডারিং ইঞ্জিন */
 let detailImagesArray = [];
 let currentDetailIdx = 0;
 let detailSliderInterval = null;
 
-function openProductDetail(name, price, mainImg, t1, t2, t3, t4) {
+function openProductDetail(name, price, mainImg, imageList) {
     document.getElementById('detail-name').innerText = name;
     document.getElementById('detail-price').innerText = price;
     
-    detailImagesArray = [t1, t2, t3, t4];
+    detailImagesArray = imageList;
     currentDetailIdx = 0;
     
     selectedMeterSize = "";
     selectedMeterPrice = "";
-    document.querySelectorAll('.option-label-box').forEach(box => box.classList.remove('selected-box'));
-    const rButtons = document.getElementsByName('meter_option');
-    rButtons.forEach(rb => rb.checked = false);
     
-    document.getElementById('thumb1').src = t1;
-    document.getElementById('thumb2').src = t2;
-    document.getElementById('thumb3').src = t3;
-    document.getElementById('thumb4').src = t4;
+    // গ্যালারি থাম্বনেইল জেনারেটর
+    const galleryContainer = document.getElementById('detail-gallery-container');
+    galleryContainer.innerHTML = ""; 
+    
+    detailImagesArray.forEach((imgSrc, idx) => {
+        const thumbImg = document.createElement('img');
+        thumbImg.id = `thumb${idx + 1}`;
+        thumbImg.src = imgSrc;
+        thumbImg.alt = `Thumb ${idx + 1}`;
+        thumbImg.onclick = function() { manualDetailView(idx); };
+        galleryContainer.appendChild(thumbImg);
+    });
+
+    // ডাইনামিক অপশন সিলেকশন মেকার (Inches এবং 2 Color Combo আপডেট সহ)
+    const optionsPanel = document.getElementById('dynamic-options-panel');
+    optionsPanel.innerHTML = ""; 
+
+    if (name === "HANDMADE GAJRA") {
+        optionsPanel.innerHTML = `
+            <label class="option-label-box" id="label-opt1" onclick="selectMeterOption('opt1', '25 Inches', '₹61')">
+                <input type="radio" id="opt1" name="meter_option" value="25 Inches">
+                <span class="option-text">25 Inches Pack</span>
+                <span class="option-price-tag">₹61</span>
+            </label>
+            <label class="option-label-box" id="label-opt2" onclick="selectMeterOption('opt2', '12 Inches', '₹40')">
+                <input type="radio" id="opt2" name="meter_option" value="12 Inches">
+                <span class="option-text">12 Inches Pack</span>
+                <span class="option-price-tag">₹40</span>
+            </label>
+        `;
+    } else if (name === "HANDMADE GOPAL DRESSED") {
+        optionsPanel.innerHTML = `
+            <label class="option-label-box" id="label-opt1" onclick="selectMeterOption('opt1', '1 PIS', '₹220')">
+                <input type="radio" id="opt1" name="meter_option" value="1 PIS">
+                <span class="option-text">1 PIS Gopal Dress</span>
+                <span class="option-price-tag">₹220</span>
+            </label>
+            <label class="option-label-box" id="label-opt2" onclick="selectMeterOption('opt2', '2 PIS Combo (2 Color Combo)', '₹400')">
+                <input type="radio" id="opt2" name="meter_option" value="2 PIS Combo (2 Color Combo)">
+                <span class="option-text">2 PIS Gopal Dress Combo (2 Color Combo)</span>
+                <span class="option-price-tag">₹400</span>
+            </label>
+        `;
+    }
     
     updateDetailView(0);
     showPage('product-detail');
@@ -1265,10 +1325,12 @@ function updateDetailView(index) {
     currentDetailIdx = index;
     document.getElementById('main-product-view').src = detailImagesArray[currentDetailIdx];
     
-    for(let i=1; i<=4; i++) {
-        document.getElementById('thumb' + i).classList.remove('active-thumb');
+    for(let i=1; i<=detailImagesArray.length; i++) {
+        const tImg = document.getElementById('thumb' + i);
+        if(tImg) tImg.classList.remove('active-thumb');
     }
-    document.getElementById('thumb' + (currentDetailIdx + 1)).classList.add('active-thumb');
+    const activeThumb = document.getElementById('thumb' + (currentDetailIdx + 1));
+    if(activeThumb) activeThumb.classList.add('active-thumb');
 }
 
 function startDetailSlider() {
@@ -1330,35 +1392,28 @@ function selectMeterOption(radioId, sizeName, priceValue) {
     document.getElementById('detail-price').innerText = "Rs. " + priceValue.replace('₹', '') + ".00";
 }
 
-// হোয়াটসঅ্যাপ কার্ড ইমেজ প্রিভিউ বুস্টার ইঞ্জিন (ছবি সহ শেয়ার করার সলিউশন)
 function triggerWebShare(event) {
     event.stopPropagation();
     const pName = document.getElementById('detail-name').innerText;
     const pPrice = document.getElementById('detail-price').innerText;
-    
-    // বর্তমান স্ক্রিনে যে ছবিটি স্লাইড হচ্ছে তার সোর্স লিংক ট্র্যাক করা
     const currentImgUrl = document.getElementById('main-product-view').src;
-    
-    // আপনার সাইটের লাইভ বেস ইউআরএল জেনারেট করা
     const webUrl = window.location.href;
 
-    // ইমেজ লিংক সহ প্রিমিয়াম মেসেজ কিউ (হোয়াটসঅ্যাপে ইমেজ প্রিভিউ শো করার মাস্টার ট্রিক)
     const richShareText = `✨ *BR_CRAFT_NEST* ✨\n\nCheck out this beautiful handmade creation!\n\n🛍️ *Product:* ${pName}\n💰 *Price:* ${pPrice}\n\nOur products are available in high quality and at an affordable price. 🎨\n\n📸 *Product Image Preview:* ${currentImgUrl}\n\n🔗 *Shop Link:* ${webUrl}`;
 
-    // সরাসরি রেডিমেড ইমেজ প্রিভিউ লিংক জেনারেট করে হোয়াটসঅ্যাপ এ রিডাইরেক্ট করা হলো
     const fallbackUrl = `https://wa.me/?text=${encodeURIComponent(richShareText)}`;
     window.open(fallbackUrl, '_blank');
 }
 
 function sendWhatsAppOrder() {
     if (selectedMeterSize === "" || selectedMeterPrice === "") {
-        alert("Please select a meter option before buying!");
+        alert("Please select an option before buying!");
         return; 
     }
 
     const myWhatsAppNumber = "7501977388"; 
     const productName = document.getElementById('detail-name').innerText;
-    const baseMessage = `Hello BR_CRAFT_NEST, I want to buy:\n\n📦 Product: ${productName}\n📏 Size: ${selectedMeterSize}\n💰 Price: ${selectedMeterPrice}\n\nPlease process my order! ✨`;
+    const baseMessage = `Hello BR_CRAFT_NEST, I want to buy:\n\n📦 Product: ${productName}\n📏 Choice/Size: ${selectedMeterSize}\n💰 Price: ${selectedMeterPrice}\n\nPlease process my order! ✨`;
     
     const encryptedText = encodeURIComponent(baseMessage);
     const apiLink = `https://wa.me/${myWhatsAppNumber}?text=${encryptedText}`;
