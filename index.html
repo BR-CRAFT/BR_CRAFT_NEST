@@ -346,49 +346,7 @@ align-items: flex-start;
 text-align: left;
 }
 
-/* নরমাল কার্ডের টেক্সট সেটিংস */
-.normal-card-content {
-width: 100%;
-margin-top: auto; 
-margin-bottom: -2px;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-text-align: left;
-z-index: 4;
-}
-
-/* Icons inside normal wide cards */
-.product-card i {
-font-size: 52px;
-color: #ff9933;
-filter: drop-shadow(0 2px 6px rgba(255,153,51,0.4));
-margin-top: 40px; 
-margin-bottom: auto;
-z-index: 4;
-}
-
-/* ফন্ট সেটিংস */
-.product-card h3 {
-font-size: 13px; 
-font-weight: 800;
-letter-spacing: 0.3px;
-line-height: 1.2;
-color: #ffffff;
-}
-.product-card p {
-font-size: 9px; 
-font-weight: 800;
-background: linear-gradient(45deg, #ff3366, #ff9933);
-padding: 4px 12px;
-border-radius: 10px;
-color: white;
-box-shadow: 0 3px 8px rgba(255,51,102,0.25);
-text-transform: uppercase;
-margin-top: 4px; 
-}
-
-/* NAME: PRICE ₹ পজিশন */
+/* Normal text structure configs */
 .product-card h3.item-title {
 font-size: 13px; 
 color: #ffffff;
@@ -584,52 +542,6 @@ color: #38ef7d;
 font-weight: 800;
 margin-bottom: 18px;
 text-shadow: 0 0 10px rgba(56, 239, 125, 0.3);
-}
-
-/* অপশন সিলেক্টর বক্স কন্টেইনার ডিজাইন */
-.options-selector-container {
-width: 100%;
-display: flex;
-flex-direction: column;
-gap: 10px;
-margin-bottom: 20px;
-text-align: left;
-}
-.option-label-box {
-width: 100%;
-background: rgba(255, 255, 255, 0.04);
-border: 1px solid rgba(51, 204, 255, 0.2);
-padding: 14px 16px;
-border-radius: 16px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-cursor: pointer;
-transition: all 0.2s ease;
-}
-.option-label-box input[type="radio"] {
-accent-color: #ff3366;
-width: 18px;
-height: 18px;
-cursor: pointer;
-margin-right: 12px;
-}
-.option-label-box .option-text {
-font-size: 14px;
-font-weight: 700;
-color: #ffffff;
-flex-grow: 1;
-}
-.option-label-box .option-price-tag {
-font-size: 15px;
-font-weight: 800;
-color: #38ef7d;
-text-shadow: 0 0 6px rgba(56, 239, 125, 0.2);
-}
-.option-label-box.selected-box {
-border-color: #ff3366;
-background: rgba(255, 51, 102, 0.08);
-box-shadow: 0 0 10px rgba(255, 51, 102, 0.2);
 }
 
 .buy-btn {
@@ -830,7 +742,7 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 <div class="about">
 <div class="about-box">
 
-<!-- ১. সোশ্যাল মিডিয়া বোতামসমূহ (আপনার ফেসবুকের নতুন লিংকটি এখানে আপডেট করা হয়েছে) -->
+<!-- সোশ্যাল মিডিয়া বোতামসমূহ -->
 <div class="social">
 <div class="main-follow-title">✨ Follow Us On Social Media ✨</div>
 <div class="rotate-banner" id="fb-switcher">Follow Us</div>
@@ -851,7 +763,7 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 </a>
 </div>
 
-<!-- ②. আওয়ার প্রোডাক্টস শপ নাও বোতাম -->
+<!-- আওয়ার প্রোডাক্টস শপ নাও বোতাম -->
 <div class="shop-section-container">
 <div class="rotate-banner" id="shop-banner-rotator">Shop Now</div>
 <div class="shop-pointer" onclick="showPage('products')">
@@ -861,14 +773,14 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 </div>
 </div>
 
-<!-- ③.  মিনি স্লাইডার ছবি বক্স -->
+<!-- মিনি স্লাইডার ছবি বক্স -->
 <div class="about-mini-slider">
 <img src="display.jpeg" class="slider-img-about visible" alt="About Pic 1">
 <img src="display1.jpeg" class="slider-img-about" alt="About Pic 2">
 <img src="logo.jpeg" class="slider-img-about" alt="About Pic 3">
 </div>
 
-<!-- ④. ডেসক্রিপশন টেক্সট এরিয়া -->
+<!-- ডেসক্রিপশন টেক্সট এরিয়া -->
 <h2>About Us</h2>
 <p>
 Welcome to BR_CRAFT_NEST.
@@ -892,7 +804,7 @@ Follow us on social media for updates and new announcements!
 <div class="products-grid">
 
 <!-- 1 NUMBER CHOK / CARD -->
-<div class="product-card touch-slider-card" id="card-1" onclick="openProductDetail('HANDMADE GAJRA', 'Rs. 61.00', '1a.jpeg', ['1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg'])">
+<div class="product-card touch-slider-card" id="card-1" onclick="openProductDetail('HANDMADE GAJRA', 'Rs. 120.00', '1a.jpeg', ['1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg'])">
   <div class="card-slider-container">
     <img class="card-slide active-slide" src="1a.jpeg" alt="Gajra 1">
     <img class="card-slide" src="1b.jpeg" alt="Gajra 2">
@@ -902,7 +814,7 @@ Follow us on social media for updates and new announcements!
   </div>
   <div class="card-slider-content">
     <h3 class="item-title">HANDMADE GAJRA</h3>
-    <p class="item-price">Rs. 61.00</p>
+    <p class="item-price">Rs. 120.00</p>
   </div>
 </div>
 
@@ -920,31 +832,45 @@ Follow us on social media for updates and new announcements!
   </div>
 </div>
 
-<!-- 3 NUMBER CHOK -->
-<div class="product-card" onclick="comingSoon()">
-<i class="fas fa-lightbulb"></i>
-<div class="normal-card-content">
-  <h3>Creative Items</h3>
-  <p>Coming Soon</p>
-</div>
-</div>
-
-<!-- 4 NUMBER CHOK -->
-<div class="product-card" onclick="comingSoon()">
-<i class="fas fa-gift"></i>
-<div class="normal-card-content">
-  <h3>Gift Products</h3>
-  <p>Coming Soon</p>
-</div>
+<!-- 3 NUMBER CHOK / CARD - ৩ নম্বর প্রোডাক্টের নাম ও ব্র্যাকেট টেক্সট (1 Pcs Image) অ্যাড করা হলো -->
+<div class="product-card touch-slider-card" id="card-3" onclick="openProductDetail('HANDMADE FABRIC PAINTED HANDKERCHIEF (1 Pcs Image)', 'Rs. 80.00', '3a.jpeg', ['3a.jpeg', '3b.jpeg', '3c.jpeg', '3d.jpeg'])">
+  <div class="card-slider-container">
+    <img class="card-slide active-slide" src="3a.jpeg" alt="Handkerchief 1">
+    <img class="card-slide" src="3b.jpeg" alt="Handkerchief 2">
+    <img class="card-slide" src="3c.jpeg" alt="Handkerchief 3">
+    <img class="card-slide" src="3d.jpeg" alt="Handkerchief 4">
+    <div class="card-slider-overlay"></div>
+  </div>
+  <div class="card-slider-content">
+    <h3 class="item-title">FABRIC PAINTED HANDKERCHIEF (1 Pcs Image)</h3>
+    <p class="item-price">Rs. 80.00</p>
+  </div>
 </div>
 
-<!-- 5 NUMBER CHOK -->
-<div class="product-card" onclick="comingSoon()">
-<i class="fas fa-wand-magic-sparkles"></i>
-<div class="normal-card-content">
-  <h3>Custom Creations</h3>
-  <p>Coming Soon</p>
+<!-- 4 NUMBER CHOK / CARD - ৪ নম্বর প্রোডাক্টের নাম পরিবর্তন করে BEAUTIFUL HANDMADE CHURI করা হলো -->
+<div class="product-card touch-slider-card" id="card-4" onclick="openProductDetail('BEAUTIFUL HANDMADE CHURI (2 Pcs Combo)', 'Rs. 90.00', '4a.jpeg', ['4a.jpeg', '4b.jpeg'])">
+  <div class="card-slider-container">
+    <img class="card-slide active-slide" src="4a.jpeg" alt="Churi 1">
+    <img class="card-slide" src="4b.jpeg" alt="Churi 2">
+    <div class="card-slider-overlay"></div>
+  </div>
+  <div class="card-slider-content">
+    <h3 class="item-title">BEAUTIFUL HANDMADE CHURI</h3>
+    <p class="item-price">Rs. 90.00</p>
+  </div>
 </div>
+
+<!-- 5 NUMBER CHOK / CARD - ৫ নম্বর প্রোডাক্টের নাম ও ব্র্যাকেট টেক্সট (3 Pcs Image) অ্যাড করা হলো -->
+<div class="product-card touch-slider-card" id="card-5" onclick="openProductDetail('HANDMADE FABRIC PAINTED HANDKERCHIEF (3 Pcs Image)', 'Rs. 100.00', '5a.jpeg', ['5a.jpeg', '5b.jpeg'])">
+  <div class="card-slider-container">
+    <img class="card-slide active-slide" src="5a.jpeg" alt="Handkerchief Combo 1">
+    <img class="card-slide" src="5b.jpeg" alt="Handkerchief Combo 2">
+    <div class="card-slider-overlay"></div>
+  </div>
+  <div class="card-slider-content">
+    <h3 class="item-title">FABRIC PAINTED HANDKERCHIEF (3 Pcs Image)</h3>
+    <p class="item-price">Rs. 100.00</p>
+  </div>
 </div>
 
 <!-- 6 NUMBER CHOK -->
@@ -1001,10 +927,7 @@ Follow us on social media for updates and new announcements!
   <div class="info-box">
     <h2 id="detail-name">Product Name</h2>
     <div class="custom-color-note">(You can choose any color as per your preference)</div>
-    <div class="price" id="detail-price">Rs. 61.00</div>
-    
-    <!-- ডাইনামিক অপশন কন্টেইনার প্যানেল -->
-    <div class="options-selector-container" id="dynamic-options-panel"></div>
+    <div class="price" id="detail-price">Rs. 0.00</div>
 
     <!-- হোয়াটসঅ্যাপ বাই বোতাম -->
     <button class="buy-btn" onclick="sendWhatsAppOrder()">
@@ -1027,13 +950,9 @@ Follow us on social media for updates and new announcements!
 </div>
 
 <script>
-// টপ রানিং টেক্সট ব্যানার ডেটা
 const originalMarqueeText = "We sell unique handmade products like handmade key rings, mobile rings, roses, bouquets and much more... ✨";
 const productPageMarqueeText = "Our products are available in high quality and at an affordable price.";
 let pendingMarqueeText = "";
-
-let selectedMeterSize = "";
-let selectedMeterPrice = "";
 
 // Splash Screen handling
 setTimeout(() => {
@@ -1121,8 +1040,8 @@ function startCard8Slider() {
 startCard8Slider();
 
 // UNIVERSAL DYNAMIC SLIDER ENGINE
-let cardIndices = { 'card-1': 0, 'card-2': 0 };
-let cardIntervals = { 'card-1': null, 'card-2': null };
+let cardIndices = { 'card-1': 0, 'card-2': 0, 'card-3': 0, 'card-4': 0, 'card-5': 0 };
+let cardIntervals = { 'card-1': null, 'card-2': null, 'card-3': null, 'card-4': null, 'card-5': null };
 
 function startCardAutoSlide(cardId) {
     stopCardAutoSlide(cardId);
@@ -1146,8 +1065,9 @@ function rotateCardSlide(cardId, direction) {
     slides[cardIndices[cardId]].classList.add('active-slide');
 }
 
-startCardAutoSlide('card-1');
-startCardAutoSlide('card-2');
+for (let i = 1; i <= 5; i++) {
+    startCardAutoSlide('card-' + i);
+}
 
 document.querySelectorAll('.touch-slider-card').forEach(card => {
     let startX = 0;
@@ -1237,7 +1157,6 @@ function showPage(page){
         stopDetailSlider();
     }
     
-    // টার্গেটেড স্ক্রোলিং সリューション
     if (page === 'product-detail') {
         setTimeout(() => {
             const anchor = document.getElementById('detail-view-anchor');
@@ -1262,9 +1181,6 @@ function openProductDetail(name, price, mainImg, imageList) {
     detailImagesArray = imageList;
     currentDetailIdx = 0;
     
-    selectedMeterSize = "";
-    selectedMeterPrice = "";
-    
     // গ্যালারি থাম্বনেইল জেনারেটর
     const galleryContainer = document.getElementById('detail-gallery-container');
     galleryContainer.innerHTML = ""; 
@@ -1278,38 +1194,6 @@ function openProductDetail(name, price, mainImg, imageList) {
         galleryContainer.appendChild(thumbImg);
     });
 
-    // ডাইনামিক অপশন সিলেকশন মেকার
-    const optionsPanel = document.getElementById('dynamic-options-panel');
-    optionsPanel.innerHTML = ""; 
-
-    if (name === "HANDMADE GAJRA") {
-        optionsPanel.innerHTML = `
-            <label class="option-label-box" id="label-opt1" onclick="selectMeterOption('opt1', '25 Inches', '₹61')">
-                <input type="radio" id="opt1" name="meter_option" value="25 Inches">
-                <span class="option-text">25 Inches Pack</span>
-                <span class="option-price-tag">₹61</span>
-            </label>
-            <label class="option-label-box" id="label-opt2" onclick="selectMeterOption('opt2', '12 Inches', '₹40')">
-                <input type="radio" id="opt2" name="meter_option" value="12 Inches">
-                <span class="option-text">12 Inches Pack</span>
-                <span class="option-price-tag">₹40</span>
-            </label>
-        `;
-    } else if (name === "HANDMADE GOPAL DRESSED") {
-        optionsPanel.innerHTML = `
-            <label class="option-label-box" id="label-opt1" onclick="selectMeterOption('opt1', '1 PIS', '₹220')">
-                <input type="radio" id="opt1" name="meter_option" value="1 PIS">
-                <span class="option-text">1 PIS Gopal Dress</span>
-                <span class="option-price-tag">₹220</span>
-            </label>
-            <label class="option-label-box" id="label-opt2" onclick="selectMeterOption('opt2', '2 PIS Combo (2 Color Combo)', '₹400')">
-                <input type="radio" id="opt2" name="meter_option" value="2 PIS Combo (2 Color Combo)">
-                <span class="option-text">2 PIS Gopal Dress Combo (2 Color Combo)</span>
-                <span class="option-price-tag">₹400</span>
-            </label>
-        `;
-    }
-    
     updateDetailView(0);
     showPage('product-detail');
     startDetailSlider();
@@ -1371,21 +1255,6 @@ if (detailSwipeZone) {
     }, { passive: true });
 }
 
-function selectMeterOption(radioId, sizeName, priceValue) {
-    document.querySelectorAll('.option-label-box').forEach(box => box.classList.remove('selected-box'));
-    
-    const targetRadio = document.getElementById(radioId);
-    if(targetRadio) {
-        targetRadio.checked = true;
-        document.getElementById('label-' + radioId).classList.add('selected-box');
-    }
-    
-    selectedMeterSize = sizeName;
-    selectedMeterPrice = priceValue;
-    
-    document.getElementById('detail-price').innerText = "Rs. " + priceValue.replace('₹', '') + ".00";
-}
-
 function triggerWebShare(event) {
     event.stopPropagation();
     const pName = document.getElementById('detail-name').innerText;
@@ -1400,14 +1269,11 @@ function triggerWebShare(event) {
 }
 
 function sendWhatsAppOrder() {
-    if (selectedMeterSize === "" || selectedMeterPrice === "") {
-        alert("Please select an option before buying!");
-        return; 
-    }
-
     const myWhatsAppNumber = "7501977388"; 
     const productName = document.getElementById('detail-name').innerText;
-    const baseMessage = `Hello BR_CRAFT_NEST, I want to buy:\n\n📦 Product: ${productName}\n📏 Choice/Size: ${selectedMeterSize}\n💰 Price: ${selectedMeterPrice}\n\nPlease process my order! ✨`;
+    const productPrice = document.getElementById('detail-price').innerText;
+    
+    const baseMessage = `Hello BR_CRAFT_NEST, I want to buy:\n\n📦 Product: ${productName}\n💰 Price: ${productPrice}\n\nPlease process my order! ✨`;
     
     const encryptedText = encodeURIComponent(baseMessage);
     const apiLink = `https://wa.me/${myWhatsAppNumber}?text=${encryptedText}`;
@@ -1415,7 +1281,7 @@ function sendWhatsAppOrder() {
 }
 
 window.addEventListener('click', (e) => {
-    if (e.target.closest('.bottom-nav') || e.target.closest('.touch-slider-card') || e.target.closest('.gallery-grid') || e.target.closest('.detail-share-btn') || e.target.closest('.option-label-box') || e.target.closest('.detail-back-bar')) return;
+    if (e.target.closest('.bottom-nav') || e.target.closest('.touch-slider-card') || e.target.closest('.gallery-grid') || e.target.closest('.detail-share-btn') || e.target.closest('.detail-back-bar')) return;
     const pulse = document.createElement('div');
     pulse.className = 'touch-pulse';
     pulse.style.left = `${e.clientX}px`;
@@ -1424,9 +1290,11 @@ window.addEventListener('click', (e) => {
     pulse.addEventListener('animationend', () => { pulse.remove(); });
 });
 
+// Coming soon notification
 function comingSoon(){
     alert("Our handmade craft products will be available very soon!");
 }
 </script>
 </body>
 </html>
+
