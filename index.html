@@ -124,7 +124,7 @@ color: #ffb347;
 letter-spacing: 4px;
 margin-bottom: 10px;
 text-transform: uppercase;
-text-shadow: 0 0 10px rgba(255, 179, 71, 0.5);
+text-shadow: 0 0 10px rgba(255, 179, 71, 0.55);
 animation: smoothFadePulse 1.5s ease-in-out infinite;
 }
 .splash-logo {
@@ -295,6 +295,33 @@ user-select: none;
 transform: scale(0.98);
 }
 
+/* মেসো প্রোডাক্টের জন্য ২ নম্বর পেজে টপ-লেফট নিয়ন ট্রাস্ট ব্যাজ স্টাইল */
+.meesho-trust-badge {
+position: absolute;
+top: 10px;
+left: 12px;
+background: linear-gradient(135deg, rgba(230, 0, 126, 0.9), rgba(255, 51, 102, 0.9));
+color: #fff;
+padding: 5px 12px;
+border-radius: 30px;
+font-size: 9.5px;
+font-weight: 800;
+letter-spacing: 0.3px;
+z-index: 5;
+display: flex;
+align-items: center;
+gap: 6px;
+box-shadow: 0 4px 10px rgba(230, 0, 126, 0.4), 0 0 8px rgba(255, 255, 255, 0.3);
+border: 1px solid rgba(255, 255, 255, 0.2);
+animation: badgeGlow 1.5s infinite alternate ease-in-out;
+text-transform: uppercase;
+pointer-events: none;
+}
+@keyframes badgeGlow {
+0% { box-shadow: 0 4px 10px rgba(230, 0, 126, 0.4); transform: scale(1); }
+100% { box-shadow: 0 4px 15px rgba(255, 51, 102, 0.7); transform: scale(1.02); }
+}
+
 /* TOUCH SLIDER INNER ENGINE */
 .card-slider-container {
 position: absolute;
@@ -396,7 +423,7 @@ z-index: 2;
 
 /* ==========================================================================
    ৩ নম্বর পেজ: প্রোডাক্ট ডিটেইল লেআউট (৫২০px ফিক্সড রাজকীয় ফ্রেম)
-   ========================================================================== */
+   ========================================================================= */
 .detail-container {
 padding: 10px 14px;
 color: white;
@@ -525,17 +552,6 @@ margin-bottom: 2px;
 font-weight: 800;
 }
 
-/* কাস্টম কালার নোট স্টাইল */
-.custom-color-note {
-font-size: 11.5px;
-color: #ffb347;
-font-weight: 600;
-letter-spacing: 0.5px;
-margin-bottom: 12px;
-text-shadow: 0 0 8px rgba(255, 179, 71, 0.4);
-font-style: italic;
-}
-
 .info-box .price {
 font-size: 23px;
 color: #38ef7d;
@@ -544,6 +560,13 @@ margin-bottom: 18px;
 text-shadow: 0 0 10px rgba(56, 239, 125, 0.3);
 }
 
+/* ডাইনামিক অ্যাকশন বোতাম কন্টেইনার */
+.action-btn-container {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 .buy-btn {
 width: 100%;
 background: linear-gradient(135deg, #25d366, #128c7e);
@@ -558,7 +581,7 @@ cursor: pointer;
 display: flex;
 justify-content: center;
 align-items: center;
-gap: 10px;
+gap: 14px;
 box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 transition: transform 0.2s;
 }
@@ -566,8 +589,70 @@ transition: transform 0.2s;
 transform: scale(0.96);
 }
 
+/* ৩ নম্বর পেজে মেসো বোতামের প্রিমিয়াম ক্যাপসুল ও কাস্টম "m" চিহ্ন লজিক */
+.meesho-btn {
+width: 100%;
+background: linear-gradient(135deg, #ff3366, #e6007e);
+color: white;
+border: none;
+padding: 16px;
+border-radius: 24px; 
+font-size: 16px;
+font-weight: 800;
+text-transform: uppercase;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 14px;
+box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+border: 1px solid rgba(255, 255, 255, 0.1);
+transition: transform 0.2s;
+}
+.meesho-btn:active {
+transform: scale(0.96);
+}
+
+/* কাস্টম জেনুইন Meesho "m" ব্র্যান্ড লোগো আইকন এফেক্ট */
+.meesho-custom-icon {
+font-family: 'Poppins', sans-serif !important;
+font-size: 21px !important;
+font-weight: 900 !important;
+color: #fff;
+background: rgba(255, 255, 255, 0.2);
+width: 28px;
+height: 28px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 8px;
+text-transform: lowercase !important;
+line-height: 1;
+padding-bottom: 4px;
+box-shadow: inset 0 0 5px rgba(255,255,255,0.3);
+font-style: normal !important;
+}
+
+/* ৩ নম্বর পেজের চেইঞ্জিং টেক্সট */
+#meesho-detail-switcher {
+font-size: 11px;
+color: #ffb347;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 2px; 
+margin-top: 4px;
+height: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: opacity 0.2s ease-in-out;
+text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+width: 100%;
+}
+
 /* ==========================================================================
-   1ST PAGE: ABOUT US
+   1ST PAGE: ABOUT US (ব্যবধন মেকানিজম আপনার রিকোয়েস্ট অনুযায়ী ফিক্সড)
    ========================================================================== */
 .about{
 padding: 5px 14px 25px 14px; 
@@ -587,13 +672,84 @@ position: relative;
 width: 100%;
 }
 
-/* সোশ্যাল মিডিয়া বক্স */
+/* শপ নাও সেকশন কন্টেইনার (প্রধান বাটন) */
+.shop-section-container { 
+margin-top: 5px; 
+display: flex; 
+flex-direction: column; 
+align-items: center; 
+width: 100%; 
+position: relative; 
+margin-bottom: 35px; /* এই স্পেশাল বাটনটি থেকে নিচের ফেসবুক বাটন জোনের ব্যবধান আরও বাড়ানো হলো */
+}
+
+/* Our Products শপ বাটন - আকাশি এবং কমলার মিক্সড রানিং গ্লোয়িং নিওন স্ট্রিপ বর্ডার লাইট এফেক্ট */
+.shop-pointer { 
+position: relative;
+background: linear-gradient(135deg, #150a21, #0d0718); 
+padding: 16px 20px; 
+border-radius: 24px; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+gap: 14px; 
+color: #fff; 
+font-weight: 800; 
+font-size: 16px; 
+text-transform: uppercase; 
+cursor: pointer; 
+width: 100%; 
+overflow: hidden;
+z-index: 1;
+box-shadow: 0 0 15px rgba(51, 204, 255, 0.2), 0 0 30px rgba(255, 153, 51, 0.2);
+}
+.shop-pointer::before {
+content: "";
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: conic-gradient(from 0deg, #33ccff, #ff9933, #33ccff); 
+animation: borderRotate 3s linear infinite;
+z-index: -2;
+}
+.shop-pointer::after {
+content: "";
+position: absolute;
+inset: 2px; 
+background: linear-gradient(135deg, #201135, #0d0718);
+border-radius: 22px;
+z-index: -1;
+}
+@keyframes borderRotate {
+100% { transform: rotate(360deg); }
+}
+
+/* Our Products বোতামের ঠিক মাথার ওপরে লকড চেইঞ্জিং হলুদ টেক্সট */
+#shop-banner-rotator {
+font-size: 11px;
+color: #ffb347;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 2px; 
+height: 16px; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+transition: opacity 0.2s ease-in-out; 
+text-shadow: 0 1px 4px rgba(0,0,0,0.4); 
+width: 100%;
+}
+
+/* ফেসবুক এবং নিচের অন্য বোতামগুলোর মেইন এরিয়া (এরা নিজেদের মধ্যে আগের মতোই কাছাকাছি থাকবে) */
 .social { 
 display: flex; 
 flex-direction: column; 
 width: 100%; 
-margin: -5px auto 0 auto; 
-gap: 5px; 
+margin: 0 auto; 
+gap: 5px; /* Our Products বাটন বাদে বাকি সমস্ত বাটন নিজেদের মধ্যে আগের মতোই কাছাকাছি সেট */
 }
 .main-follow-title { 
 font-size: 21px; 
@@ -641,32 +797,51 @@ width: 100%;
 .threads{ background: linear-gradient(135deg, #111, #222); }
 .youtube{ background: linear-gradient(135deg, #ff0000, #c40000); }
 
-/* শপ নাও সেকশন */
-.shop-section-container { 
-margin-top: 10px; 
-display: flex; 
-flex-direction: column; 
-align-items: center; 
-width: 100%; 
-position: relative; 
+/* ১ নম্বর পেজের মেসো চেইঞ্জিং টেক্সট - গ্যাপ একদম কমিয়ে মেসো বোতামের ঠিক মাথার ওপরে লকড */
+#meesho-about-switcher {
+font-size: 11px;
+color: #ffb347;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 2px; 
+margin-top: 24px; 
+height: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: opacity 0.2s ease-in-out;
+text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+width: 100%;
 }
-.shop-section-container .rotate-banner { height: 16px; margin-top: 4px; margin-bottom: 2px; }
-.shop-pointer { 
-background: linear-gradient(135deg, #ff3366, #ff9933); 
-padding: 16px 20px; 
-border-radius: 18px; 
+
+/* ১ নম্বর পেজে নতুন মেসো বোতাম */
+.meesho-shop-btn-about { 
+text-decoration: none; 
+background: linear-gradient(135deg, #ff3366, #e6007e); 
+padding: 15px; 
+border-radius: 24px; 
 display: flex; 
 justify-content: center; 
 align-items: center; 
-gap: 12px; 
+gap: 14px; 
 color: #fff; 
-font-weight: 800; 
-font-size: 16px; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4); animation: pulseBtn 1.5s infinite alternate ease-in-out; border: 1px solid rgba(255,255,255,0.2); width: 100%; }
-.shop-pointer i { font-size: 20px; animation: bounceIcon 0.6s infinite alternate; }
-@keyframes bounceIcon { 0% { transform: translateX(0); } 100% { transform: translateX(6px); } }
+font-weight: 700; 
+font-size: 16px; 
+text-transform: uppercase; 
+cursor: pointer; 
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+border: 1px solid rgba(255, 255, 255, 0.1); 
+width: 100%; 
+transition: all 0.3s ease; 
+margin-top: 0px; 
+}
+.meesho-shop-btn-about:active { 
+transform: scale(0.96); 
+}
 
 /* মিনি স্লাইডার এবং টেক্সট ডেসক্রিপশন */
-.about-mini-slider { width: 100%; height: 210px; margin: 25px auto 0 auto; border-radius: 20px; overflow: hidden; border: 2px solid #33ccff; box-shadow: 0 8px 25px rgba(0,0,0,0.4); position: relative; }
+.about-mini-slider { width: 100%; height: 210px; margin: 25px auto 0 auto; border-radius: 20px; overflow: hidden; border: 2px solid #33ccff; box-shadow: 0 8px 25px rgba(0,0,0,0.46); position: relative; }
 .about-box h2{ margin-top: 25px; margin-bottom: 10px; font-size: 28px; color: #33ccff; font-weight: 800; text-shadow: 0 2px 10px rgba(51, 204, 255, 0.4); }
 .about-box p{ line-height: 1.9; font-size: 16px; color: #e0d5ed; margin-bottom: 20px; text-align: center; }
 
@@ -742,45 +917,50 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 <div class="about">
 <div class="about-box">
 
-<!-- সোশ্যাল মিডিয়া বোতামসমূহ -->
-<div class="social">
-<div class="main-follow-title">✨ Follow Us On Social Media ✨</div>
-<div class="rotate-banner" id="fb-switcher">Follow Us</div>
-<a class="fb" href="https://www.facebook.com/share/1ESCS8mY5Q/?mibextid=wwXIfr" target="_blank">
-<i class="fab fa-facebook-f"></i> Facebook
-</a>
-<div class="rotate-banner" id="insta-switcher">Follow Us</div>
-<a class="insta" href="https://www.instagram.com/br_craft_nest?igsh=dm5iYnk0Z3AzYWk=" target="_blank">
-<i class="fab fa-instagram"></i> Instagram
-</a>
-<div class="rotate-banner" id="threads-switcher">Follow Us</div>
-<a class="threads" href="https://www.threads.com/@br_craft_nest?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
-<i class="fa-brands fa-threads"></i> Threads
-</a>
-<div class="rotate-banner" id="yt-switcher">Subscribe Us</div>
-<a class="youtube" href="https://www.youtube.com/@br_craft_nest" target="_blank">
-<i class="fab fa-youtube"></i> YouTube
-</a>
-</div>
-
-<!-- আওয়ার প্রোডাক্টস শপ নাও বোতাম -->
+<!-- কন্টেইনার ১: আওয়ার প্রোডাক্টস শপ বাটন এবং তার চেইঞ্জিং হলুদ টেক্সট (সবার ওপরে সেট করা হলো) -->
 <div class="shop-section-container">
-<div class="rotate-banner" id="shop-banner-rotator">Shop Now</div>
-<div class="shop-pointer" onclick="showPage('products')">
-<i class="fa-solid fa-cart-shopping"></i>
-<span>Our Products - Shop Now</span>
-<i class="fa-solid fa-angles-right"></i>
-</div>
+  <div id="shop-banner-rotator">Shop Now</div>
+  <div class="shop-pointer" onclick="showPage('products')">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Our Products - Shop Now
+  </div>
 </div>
 
-<!-- মিনি স্লাইডার ছবি বক্স -->
+<!-- কন্টেইনার ২: সোশ্যাল মিডিয়া বোতামসমূহ এবং মেসো বোতাম (প্রধান বোতাম থেকে প্রোপার ডিস্টেন্সে এবং এরা নিজেরা কাছাকাছি থাকবে) -->
+<div class="social">
+  <div class="rotate-banner" id="fb-switcher">Follow Us</div>
+  <a class="fb" href="https://www.facebook.com/share/1ESCS8mY5Q/?mibextid=wwXIfr" target="_blank">
+    <i class="fab fa-facebook-f"></i> Facebook
+  </a>
+  <div class="rotate-banner" id="insta-switcher">Follow Us</div>
+  <a class="insta" href="https://www.instagram.com/br_craft_nest?igsh=dm5iYnk0Z3AzYWk=" target="_blank">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+  <div class="rotate-banner" id="threads-switcher">Follow Us</div>
+  <a class="threads" href="https://www.threads.com/@br_craft_nest?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
+    <i class="fa-brands fa-threads"></i> Threads
+  </a>
+  <div class="rotate-banner" id="yt-switcher">Subscribe Us</div>
+  <a class="youtube" href="https://www.youtube.com/@br_craft_nest" target="_blank">
+    <i class="fab fa-youtube"></i> YouTube
+  </a>
+
+  <div class="rotate-banner" id="meesho-about-switcher">Visit Store</div>
+  <!-- ১ নম্বর পেজে আপনার মূল Meesho অ্যাকাউন্ট স্টোর ইউআরএল লিঙ্কটি পারফেক্টলি সেট করা হলো -->
+  <a class="meesho-shop-btn-about" href="https://www.meesho.com/BRCRAFTNEST?_ms=3.0.1" target="_blank">
+    <em class="meesho-custom-icon">m</em>
+    VISIT OUR STORE ON MEESHO
+  </a>
+</div>
+
+<!-- MINI SLIDER PICTURE BOX -->
 <div class="about-mini-slider">
 <img src="display.jpeg" class="slider-img-about visible" alt="About Pic 1">
 <img src="display1.jpeg" class="slider-img-about" alt="About Pic 2">
 <img src="logo.jpeg" class="slider-img-about" alt="About Pic 3">
 </div>
 
-<!-- ডেসক্রিপশন টেক্সট এরিয়া -->
+<!-- DESCRIPTION TEXT PANEL -->
 <h2>About Us</h2>
 <p>
 Welcome to BR_CRAFT_NEST.
@@ -804,7 +984,8 @@ Follow us on social media for updates and new announcements!
 <div class="products-grid">
 
 <!-- 1 NUMBER CHOK / CARD -->
-<div class="product-card touch-slider-card" id="card-1" onclick="openProductDetail('HANDMADE GAJRA', 'Rs. 120.00', '1a.jpeg', ['1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg'])">
+<div class="product-card touch-slider-card" id="card-1" onclick="openProductDetail(1, 'HANDMADE GAJRA', 'Rs. 120.00', '1a.jpeg', ['1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg'], 'meesho', 'https://www.meesho.com/s/p/g2q9uz?utm_source=si')">
+  <div class="meesho-trust-badge"><i class="fa-solid fa-shield-heart"></i> Available on Meesho | 100% Safe Order</div>
   <div class="card-slider-container">
     <img class="card-slide active-slide" src="1a.jpeg" alt="Gajra 1">
     <img class="card-slide" src="1b.jpeg" alt="Gajra 2">
@@ -819,7 +1000,7 @@ Follow us on social media for updates and new announcements!
 </div>
 
 <!-- 2 NUMBER CHOK / CARD -->
-<div class="product-card touch-slider-card" id="card-2" onclick="openProductDetail('HANDMADE GOPAL DRESSED', 'Rs. 220.00', '2a.jpeg', ['2a.jpeg', '2b.jpeg', '2c.jpeg'])">
+<div class="product-card touch-slider-card" id="card-2" onclick="openProductDetail(2, 'HANDMADE GOPAL DRESSED', 'Rs. 220.00', '2a.jpeg', ['2a.jpeg', '2b.jpeg', '2c.jpeg'], 'whatsapp', '')">
   <div class="card-slider-container">
     <img class="card-slide active-slide" src="2a.jpeg" alt="Gopal 1">
     <img class="card-slide" src="2b.jpeg" alt="Gopal 2">
@@ -832,8 +1013,9 @@ Follow us on social media for updates and new announcements!
   </div>
 </div>
 
-<!-- 3 NUMBER CHOK / CARD - ৩ নম্বর প্রোডাক্টের নাম ও ব্র্যাকেট টেক্সট (1 Pcs Image) অ্যাড করা হলো -->
-<div class="product-card touch-slider-card" id="card-3" onclick="openProductDetail('HANDMADE FABRIC PAINTED HANDKERCHIEF (1 Pcs Image)', 'Rs. 80.00', '3a.jpeg', ['3a.jpeg', '3b.jpeg', '3c.jpeg', '3d.jpeg'])">
+<!-- 3 NUMBER CHOK / CARD -->
+<div class="product-card touch-slider-card" id="card-3" onclick="openProductDetail(3, 'HANDMADE FABRIC PAINTED HANDKERCHIEF (1 Pcs Image)', 'Rs. 80.00', '3a.jpeg', ['3a.jpeg', '3b.jpeg', '3c.jpeg', '3d.jpeg'], 'meesho', 'https://www.meesho.com/s/p/g32381?utm_source=si')">
+  <div class="meesho-trust-badge"><i class="fa-solid fa-shield-heart"></i> Available on Meesho | 100% Safe Order</div>
   <div class="card-slider-container">
     <img class="card-slide active-slide" src="3a.jpeg" alt="Handkerchief 1">
     <img class="card-slide" src="3b.jpeg" alt="Handkerchief 2">
@@ -847,8 +1029,8 @@ Follow us on social media for updates and new announcements!
   </div>
 </div>
 
-<!-- 4 NUMBER CHOK / CARD - ৪ নম্বর প্রোডাক্টের নাম পরিবর্তন করে BEAUTIFUL HANDMADE CHURI করা হলো -->
-<div class="product-card touch-slider-card" id="card-4" onclick="openProductDetail('BEAUTIFUL HANDMADE CHURI (2 Pcs Combo)', 'Rs. 90.00', '4a.jpeg', ['4a.jpeg', '4b.jpeg'])">
+<!-- 4 NUMBER CHOK / CARD -->
+<div class="product-card touch-slider-card" id="card-4" onclick="openProductDetail(4, 'BEAUTIFUL HANDMADE CHURI (2 Pcs Combo)', 'Rs. 90.00', '4a.jpeg', ['4a.jpeg', '4b.jpeg'], 'whatsapp', '')">
   <div class="card-slider-container">
     <img class="card-slide active-slide" src="4a.jpeg" alt="Churi 1">
     <img class="card-slide" src="4b.jpeg" alt="Churi 2">
@@ -860,8 +1042,9 @@ Follow us on social media for updates and new announcements!
   </div>
 </div>
 
-<!-- 5 NUMBER CHOK / CARD - ৫ নম্বর প্রোডাক্টের নাম ও ব্র্যাকেট টেক্সট (3 Pcs Image) অ্যাড করা হলো -->
-<div class="product-card touch-slider-card" id="card-5" onclick="openProductDetail('HANDMADE FABRIC PAINTED HANDKERCHIEF (3 Pcs Image)', 'Rs. 100.00', '5a.jpeg', ['5a.jpeg', '5b.jpeg'])">
+<!-- 5 NUMBER CHOK / CARD -->
+<div class="product-card touch-slider-card" id="card-5" onclick="openProductDetail(5, 'HANDMADE FABRIC PAINTED HANDKERCHIEF (3 Pcs Image)', 'Rs. 100.00', '5a.jpeg', ['5a.jpeg', '5b.jpeg'], 'meesho', 'https://www.meesho.com/s/p/g32380?utm_source=si')">
+  <div class="meesho-trust-badge"><i class="fa-solid fa-shield-heart"></i> Available on Meesho | 100% Safe Order</div>
   <div class="card-slider-container">
     <img class="card-slide active-slide" src="5a.jpeg" alt="Handkerchief Combo 1">
     <img class="card-slide" src="5b.jpeg" alt="Handkerchief Combo 2">
@@ -915,7 +1098,7 @@ Follow us on social media for updates and new announcements!
     </button>
   </div>
 
-  <!-- রাজকীয় ৫২০px ইমেজ হোল্ডার ফ্রেম -->
+  <!-- রাজকীয় ৫২০px ইমেজ হোলルダー ফ্রেম -->
   <div class="main-img-holder" id="detail-swipe-zone">
     <img id="main-product-view" src="logo.jpeg" alt="Main View">
     <div class="gallery-grid" id="detail-gallery-container"></div>
@@ -926,13 +1109,14 @@ Follow us on social media for updates and new announcements!
   
   <div class="info-box">
     <h2 id="detail-name">Product Name</h2>
-    <div class="custom-color-note">(You can choose any color as per your preference)</div>
+    
+    <!-- ৩ নম্বর পেজে মেসো বোতামের ঠিক মাথার ওপরে চেইঞ্জিং টেক্সট এরিয়া (ফিক্সড মার্জিন) -->
+    <div id="meesho-detail-switcher">Shop Now</div>
+    
     <div class="price" id="detail-price">Rs. 0.00</div>
 
-    <!-- হোয়াটসঅ্যাপ বাই বোতাম -->
-    <button class="buy-btn" onclick="sendWhatsAppOrder()">
-      <i class="fa-brands fa-whatsapp"></i> Buy Now via WhatsApp
-    </button>
+    <!-- ডাইনামিক বাটন এরিয়া -->
+    <div class="action-btn-container" id="dynamic-action-btn-zone"></div>
   </div>
 </div>
 </div>
@@ -954,6 +1138,10 @@ const originalMarqueeText = "We sell unique handmade products like handmade key 
 const productPageMarqueeText = "Our products are available in high quality and at an affordable price.";
 let pendingMarqueeText = "";
 
+let currentActiveProductName = "";
+let currentActiveProductPrice = "";
+let currentActiveMeeshoUrl = "";
+
 // Splash Screen handling
 setTimeout(() => {
     const splash = document.getElementById('splash');
@@ -964,12 +1152,14 @@ setTimeout(() => {
 }, 1200);
 
 // টেক্সট পরিবর্তনের লজিক
-const fbPhrases = ["Follow Us on Facebook", "Like Our Page", "Join Our Facebook Family"];
-const instaPhrases = ["Follow Us on Instagram", "See Our Craft Reels", "Catch New Designs Live"];
-const threadsPhrases = ["Follow Us on Threads", "Daily Craft Thoughts", "Join Threads Circle"];
-const ytPhrases = ["Subscribe on YouTube", "Watch Craft Making Videos", "Subscribe Now for Vlogs"];
+const fbPhrases = ["Like Our Page", "Join Our Facebook Family", "Facebook Page"];
+const instaPhrases = ["See Our Craft Reels", "Catch New Designs Live", "Follow Us On Instagram"];
+const threadsPhrases = ["Daily Craft Thoughts", "Join Threads Circle", "Follow Us On Threads"];
+const ytPhrases = ["Watch Craft Making Videos", "Subscribe Now for Vlogs", "Subscribe YouTube"];
+const meeshoAboutPhrases = ["Visit Our Store", "Shop Collection", "Best Prices On Meesho", "Exclusive Crafts"];
+const meeshoDetailPhrases = ["Shop Premium Quality", "Best Offers on Meesho", "Order via Meesho Now", "100% Secure Checkout"];
 
-let fbIdx = 0, instaIdx = 0, thIdx = 0, ytIdx = 0;
+let fbIdx = 0, instaIdx = 0, thIdx = 0, ytIdx = 0, meIdx = 0, medIdx = 0;
 
 setInterval(() => {
     const fbS = document.getElementById('fb-switcher');
@@ -997,19 +1187,29 @@ setTimeout(() => {
     }, 2000);
 }, 1500);
 
-const shopPhrases = ["Shop Now", "Order Now", "Sale Is Live", "Handmade Products"];
-let shopIdx = 0;
 setInterval(() => {
-    const shopBanner = document.getElementById('shop-banner-rotator');
-    if (shopBanner) {
+    const meS = document.getElementById('meesho-about-switcher');
+    if (meS) { meS.style.opacity = '0'; setTimeout(() => { meIdx = (meIdx + 1) % 4; meS.innerText = meeshoAboutPhrases[meIdx]; meS.style.opacity = '1'; }, 200); }
+}, 2000);
+
+setInterval(() => {
+    const medS = document.getElementById('meesho-detail-switcher');
+    if (medS) { medS.style.opacity = '0'; setTimeout(() => { medIdx = (medIdx + 1) % 4; medS.innerText = meeshoDetailPhrases[medIdx]; medS.style.opacity = '1'; }, 200); }
+}, 2000);
+
+const shopBanner = document.getElementById('shop-banner-rotator');
+if (shopBanner) {
+    const shopPhrases = ["Shop Now", "Order Now", "Sale Is Live", "Handmade Products"];
+    let shopIdx = 0;
+    setInterval(() => {
         shopBanner.style.opacity = '0';
         setTimeout(() => {
             shopIdx = (shopIdx + 1) % 4;
             shopBanner.innerText = shopPhrases[shopIdx];
             shopBanner.style.opacity = '1';
         }, 200);
-    }
-}, 2000);
+    }, 2000);
+}
 
 // Automatic Image Slider for About Page Mini Box
 let currentSlideAbout = 0;
@@ -1174,14 +1374,17 @@ let detailImagesArray = [];
 let currentDetailIdx = 0;
 let detailSliderInterval = null;
 
-function openProductDetail(name, price, mainImg, imageList) {
+function openProductDetail(id, name, price, mainImg, imageList, orderType, targetUrl) {
     document.getElementById('detail-name').innerText = name;
     document.getElementById('detail-price').innerText = price;
+    
+    currentActiveProductName = name;
+    currentActiveProductPrice = price;
+    currentActiveMeeshoUrl = targetUrl;
     
     detailImagesArray = imageList;
     currentDetailIdx = 0;
     
-    // গ্যালারি থাম্বনেইল জেনারেটর
     const galleryContainer = document.getElementById('detail-gallery-container');
     galleryContainer.innerHTML = ""; 
     
@@ -1193,6 +1396,34 @@ function openProductDetail(name, price, mainImg, imageList) {
         thumbImg.onclick = function() { manualDetailView(idx); };
         galleryContainer.appendChild(thumbImg);
     });
+
+    const btnZone = document.getElementById('dynamic-action-btn-zone');
+    const switcherText = document.getElementById('meesho-detail-switcher');
+    btnZone.innerHTML = ""; 
+    
+    if(orderType === 'meesho') {
+        if(switcherText) switcherText.style.display = "flex";
+
+        const meeshoBtn = document.createElement('button');
+        meeshoBtn.className = "meesho-btn";
+        meeshoBtn.innerHTML = `<i class="fa-solid fa-bag-shopping"></i> BUY NOW VIA MEESHO`;
+        meeshoBtn.onclick = function() {
+            if(currentActiveMeeshoUrl !== "") {
+                window.open(currentActiveMeeshoUrl, '_blank');
+            }
+        };
+        btnZone.appendChild(meeshoBtn);
+    } else {
+        if(switcherText) switcherText.style.display = "none";
+
+        const whatsappBtn = document.createElement('button');
+        whatsappBtn.className = "buy-btn";
+        whatsappBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Buy Now via WhatsApp`;
+        whatsappBtn.onclick = function() {
+            sendWhatsAppOrder();
+        };
+        btnZone.appendChild(whatsappBtn);
+    }
 
     updateDetailView(0);
     showPage('product-detail');
@@ -1224,11 +1455,6 @@ function stopDetailSlider() {
         clearInterval(detailSliderInterval);
         detailSliderInterval = null;
     }
-}
-
-function manualDetailView(index) {
-    updateDetailView(index);
-    startDetailSlider();
 }
 
 const detailSwipeZone = document.getElementById('detail-swipe-zone');
@@ -1270,10 +1496,7 @@ function triggerWebShare(event) {
 
 function sendWhatsAppOrder() {
     const myWhatsAppNumber = "7501977388"; 
-    const productName = document.getElementById('detail-name').innerText;
-    const productPrice = document.getElementById('detail-price').innerText;
-    
-    const baseMessage = `Hello BR_CRAFT_NEST, I want to buy:\n\n📦 Product: ${productName}\n💰 Price: ${productPrice}\n\nPlease process my order! ✨`;
+    const baseMessage = `Hello BR_CRAFT_NEST, I want to buy:\n\n📦 Product: ${currentActiveProductName}\n💰 Price: ${currentActiveProductPrice}\n\nPlease process my order! ✨`;
     
     const encryptedText = encodeURIComponent(baseMessage);
     const apiLink = `https://wa.me/${myWhatsAppNumber}?text=${encryptedText}`;
@@ -1281,7 +1504,7 @@ function sendWhatsAppOrder() {
 }
 
 window.addEventListener('click', (e) => {
-    if (e.target.closest('.bottom-nav') || e.target.closest('.touch-slider-card') || e.target.closest('.gallery-grid') || e.target.closest('.detail-share-btn') || e.target.closest('.detail-back-bar')) return;
+    if (e.target.closest('.bottom-nav') || e.target.closest('.touch-slider-card') || e.target.closest('.gallery-grid') || e.target.closest('.detail-share-btn') || e.target.closest('.detail-back-bar') || e.target.closest('.meesho-btn') || e.target.closest('.buy-btn') || e.target.closest('.meesho-shop-btn-about') || e.target.closest('.shop-pointer')) return;
     const pulse = document.createElement('div');
     pulse.className = 'touch-pulse';
     pulse.style.left = `${e.clientX}px`;
@@ -1290,11 +1513,9 @@ window.addEventListener('click', (e) => {
     pulse.addEventListener('animationend', () => { pulse.remove(); });
 });
 
-// Coming soon notification
 function comingSoon(){
     alert("Our handmade craft products will be available very soon!");
 }
 </script>
 </body>
 </html>
-
