@@ -295,7 +295,7 @@ user-select: none;
 transform: scale(0.98);
 }
 
-/* মেসো প্রোডাক্টের জন্য ২ নম্বর পেজে টপ-লেফট নিয়ন ট্রাস্ট ব্যাজ স্টাইল */
+/* মেসো প্রোডাক্টের জন্য টপ-লেফট নিয়ন ট্রাস্ট ব্যাজ স্টাইল */
 .meesho-trust-badge {
 position: absolute;
 top: 10px;
@@ -560,6 +560,39 @@ margin-bottom: 18px;
 text-shadow: 0 0 10px rgba(56, 239, 125, 0.3);
 }
 
+/* অ্যাডভান্সড ভ্যারিয়েন্ট সিলেকশন প্যানেল স্টাইল */
+.variant-selector-panel {
+display: none;
+justify-content: center;
+gap: 15px;
+margin-bottom: 18px;
+width: 100%;
+}
+.variant-chip {
+padding: 10px 22px;
+border-radius: 30px;
+font-size: 13px;
+font-weight: 800;
+cursor: pointer;
+border: 2px solid rgba(255,255,255,0.2);
+background: rgba(255,255,255,0.05);
+color: #fff;
+text-transform: uppercase;
+letter-spacing: 1px;
+transition: all 0.2s ease;
+}
+.variant-chip.active-orange {
+border-color: #ff6600;
+background: #ff6600;
+box-shadow: 0 0 15px #ff6600;
+}
+.variant-chip.active-yellow {
+border-color: #ffcc00;
+background: #ffcc00;
+color: #000;
+box-shadow: 0 0 15px #ffcc00;
+}
+
 /* ডাইনামিক অ্যাকশন বোতাম কন্টেইনার */
 .action-btn-container {
 width: 100%;
@@ -680,7 +713,7 @@ flex-direction: column;
 align-items: center; 
 width: 100%; 
 position: relative; 
-margin-bottom: 35px; /* ফেসবুক বাটন জোনের ব্যবধান */
+margin-bottom: 35px; 
 }
 
 /* Our Products শপ বাটন - আকাশি এবং কমলার মিক্সড রানিং গ্লোয়িং নিওন স্ট্রিপ বর্ডার লাইট এফেক্ট */
@@ -797,9 +830,7 @@ width: 100%;
 .threads{ background: linear-gradient(135deg, #111, #222); }
 .youtube{ background: linear-gradient(135deg, #ff0000, #c40000); }
 
-/* ==========================================================================
-   NEW TRENDING SLIDER COMPONENT (ইউটিউব এর নিচে ও মিনি স্লাইডারের উপরে)
-   ========================================================================= */
+/* TRENDING SLIDER COMPONENT */
 .trending-display-container {
 width: 100%;
 margin: 25px auto 0 auto;
@@ -819,6 +850,7 @@ height: 230px;
 position: relative;
 cursor: pointer;
 overflow: hidden;
+background: #000000;
 }
 .trending-slide-img {
 width: 100%;
@@ -926,7 +958,7 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
 <div class="about">
 <div class="about-box">
 
-<!-- কন্টেইনার ১: আওয়ার প্রোডাক্টস শপ বাটন এবং তার চেইঞ্জিং হলুদ টেক্সট -->
+<!-- কন্টেইনার ১: আওয়ার প্রোডাক্টস শপ বাটন -->
 <div class="shop-section-container">
   <div id="shop-banner-rotator">Shop Now</div>
   <div class="shop-pointer" onclick="showPage('products')">
@@ -955,7 +987,7 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
   </a>
 </div>
 
-<!-- NEW TRENDING VIRAL SLIDER BOX (ইউটিউব বাটনের একদম নিচে পারফেক্টলি সেট করা হলো) -->
+<!-- TRENDING VIRAL SLIDER BOX -->
 <div class="trending-display-container">
   <div class="trending-slider-box" id="trending-swipe-zone" onclick="clickTrendingProduct()">
     <img src="1a.jpeg" class="trending-slide-img visible-ts" alt="Trending Pic">
@@ -963,9 +995,9 @@ We sell unique handmade products like handmade key rings, mobile rings, roses, b
     <img src="3c.jpeg" class="trending-slide-img" alt="Trending Pic">
     <img src="4a.jpeg" class="trending-slide-img" alt="Trending Pic">
     <img src="5b.jpeg" class="trending-slide-img" alt="Trending Pic">
-    <img src="1c.jpeg" class="trending-slide-img" alt="Trending Pic">
+    <img src="6a.jpeg" class="trending-slide-img" alt="Trending Pic">
     <img src="2a.jpeg" class="trending-slide-img" alt="Trending Pic">
-    <img src="4b.jpeg" class="trending-slide-img" alt="Trending Pic">
+    <img src="6e.jpeg" class="trending-slide-img" alt="Trending Pic">
   </div>
   <div class="trending-title-label">✨ Our Viral Trending Products ✨</div>
 </div>
@@ -1000,7 +1032,7 @@ Follow us on social media for updates and new announcements!
 <div class="products-wrapper">
 <div class="products-grid">
 
-<!-- 1 NUMBER CHOK / CARD -->
+<!-- 1 NUMBER CARD -->
 <div class="product-card touch-slider-card" id="card-1" onclick="openProductDetail(1, 'HANDMADE GAJRA', 'Rs. 120.00', '1a.jpeg', ['1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg'], 'meesho', 'https://www.meesho.com/s/p/g2q9uz?utm_source=si')">
   <div class="meesho-trust-badge"><i class="fa-solid fa-shield-heart"></i> Available on Meesho | 100% Safe Order</div>
   <div class="card-slider-container">
@@ -1016,7 +1048,7 @@ Follow us on social media for updates and new announcements!
   </div>
 </div>
 
-<!-- 2 NUMBER CHOK / CARD -->
+<!-- 2 NUMBER CARD -->
 <div class="product-card touch-slider-card" id="card-2" onclick="openProductDetail(2, 'HANDMADE GOPAL DRESSED', 'Rs. 220.00', '2a.jpeg', ['2a.jpeg', '2b.jpeg', '2c.jpeg'], 'whatsapp', '')">
   <div class="card-slider-container">
     <img class="card-slide active-slide" src="2a.jpeg" alt="Gopal 1">
@@ -1030,7 +1062,7 @@ Follow us on social media for updates and new announcements!
   </div>
 </div>
 
-<!-- 3 NUMBER CHOK / CARD -->
+<!-- 3 NUMBER CARD -->
 <div class="product-card touch-slider-card" id="card-3" onclick="openProductDetail(3, 'HANDMADE FABRIC PAINTED HANDKERCHIEF (1 Pcs Image)', 'Rs. 80.00', '3a.jpeg', ['3a.jpeg', '3b.jpeg', '3c.jpeg', '3d.jpeg'], 'meesho', 'https://www.meesho.com/s/p/g32381?utm_source=si')">
   <div class="meesho-trust-badge"><i class="fa-solid fa-shield-heart"></i> Available on Meesho | 100% Safe Order</div>
   <div class="card-slider-container">
@@ -1046,7 +1078,7 @@ Follow us on social media for updates and new announcements!
   </div>
 </div>
 
-<!-- 4 NUMBER CHOK / CARD -->
+<!-- 4 NUMBER CARD -->
 <div class="product-card touch-slider-card" id="card-4" onclick="openProductDetail(4, 'BEAUTIFUL HANDMADE CHURI (2 Pcs Combo)', 'Rs. 90.00', '4a.jpeg', ['4a.jpeg', '4b.jpeg'], 'whatsapp', '')">
   <div class="card-slider-container">
     <img class="card-slide active-slide" src="4a.jpeg" alt="Churi 1">
@@ -1059,7 +1091,7 @@ Follow us on social media for updates and new announcements!
   </div>
 </div>
 
-<!-- 5 NUMBER CHOK / CARD -->
+<!-- 5 NUMBER CARD -->
 <div class="product-card touch-slider-card" id="card-5" onclick="openProductDetail(5, 'HANDMADE FABRIC PAINTED HANDKERCHIEF (3 Pcs Image)', 'Rs. 100.00', '5a.jpeg', ['5a.jpeg', '5b.jpeg'], 'meesho', 'https://www.meesho.com/s/p/g32380?utm_source=si')">
   <div class="meesho-trust-badge"><i class="fa-solid fa-shield-heart"></i> Available on Meesho | 100% Safe Order</div>
   <div class="card-slider-container">
@@ -1073,16 +1105,27 @@ Follow us on social media for updates and new announcements!
   </div>
 </div>
 
-<!-- 6 NUMBER CHOK -->
-<div class="product-card" onclick="comingSoon()">
-<i class="fas fa-palette"></i>
-<div class="normal-card-content">
-  <h3>Premium Art</h3>
-  <p>Coming Soon</p>
-</div>
+<!-- 6 NUMBER CARD -->
+<div class="product-card touch-slider-card" id="card-6" onclick="openProductDetail(6, 'HANDMADE WOOLEN DRESS', 'Rs. 443.00', '6a.jpeg', ['6a.jpeg','6b.jpeg','6c.jpeg','6d.jpeg','6e.jpeg','6f.jpeg','6g.jpeg','6h.jpeg'], 'meesho_special', '')">
+  <div class="meesho-trust-badge"><i class="fa-solid fa-shield-heart"></i> Available on Meesho | 100% Safe Order</div>
+  <div class="card-slider-container">
+    <img class="card-slide active-slide" src="6a.jpeg" alt="Woolen Dress 1">
+    <img class="card-slide" src="6b.jpeg" alt="Woolen Dress 2">
+    <img class="card-slide" src="6c.jpeg" alt="Woolen Dress 3">
+    <img class="card-slide" src="6d.jpeg" alt="Woolen Dress 4">
+    <img class="card-slide" src="6e.jpeg" alt="Woolen Dress 5">
+    <img class="card-slide" src="6f.jpeg" alt="Woolen Dress 6">
+    <img class="card-slide" src="6g.jpeg" alt="Woolen Dress 7">
+    <img class="card-slide" src="6h.jpeg" alt="Woolen Dress 8">
+    <div class="card-slider-overlay"></div>
+  </div>
+  <div class="card-slider-content">
+    <h3 class="item-title">HANDMADE WOOLEN DRESS</h3>
+    <p class="item-price">Rs. 443.00</p>
+  </div>
 </div>
 
-<!-- 7 NUMBER CHOK -->
+<!-- 7 NUMBER CARD -->
 <div class="product-card" onclick="comingSoon()">
 <i class="fas fa-gem"></i>
 <div class="normal-card-content">
@@ -1115,7 +1158,7 @@ Follow us on social media for updates and new announcements!
     </button>
   </div>
 
-  <!-- রাজকীয় ৫২০px ইমেজ হোলルダー ফ্রেম -->
+  <!-- রাজকীয় ৫২০px ইমেজ হোল্ডার ফ্রেম -->
   <div class="main-img-holder" id="detail-swipe-zone">
     <img id="main-product-view" src="logo.jpeg" alt="Main View">
     <div class="gallery-grid" id="detail-gallery-container"></div>
@@ -1127,10 +1170,15 @@ Follow us on social media for updates and new announcements!
   <div class="info-box">
     <h2 id="detail-name">Product Name</h2>
     
-    <!-- ৩ নম্বর পেজে মেসো বোতামের ঠিক মাথার ওপরে চেইঞ্জিং টেক্সট এরিয়া (ফিক্সড মার্জিন) -->
     <div id="meesho-detail-switcher">Shop Now</div>
     
     <div class="price" id="detail-price">Rs. 0.00</div>
+
+    <!-- ভ্যারিয়েন্ট সিলেকশন প্যানেল -->
+    <div class="variant-selector-panel" id="detail-variant-zone">
+      <div class="variant-chip active-orange" id="chip-orange" onclick="switchWoolenVariant('orange')">Orange</div>
+      <div class="variant-chip" id="chip-yellow" onclick="switchWoolenVariant('yellow')">Yellow</div>
+    </div>
 
     <!-- ডাইনামিক বাটন এরিয়া -->
     <div class="action-btn-container" id="dynamic-action-btn-zone"></div>
@@ -1250,70 +1298,65 @@ function startCard8Slider() {
 }
 startCard8Slider();
 
-// ==========================================================================
-// NEW TRENDING DISPLAY ENGINE (১ নম্বর পেজের নতুন স্লাইডার মেকানিজম)
-// ==========================================================================
+// TRENDING DISPLAY ENGINE
 let trendingIdx = 0;
 const trendingSlides = document.querySelectorAll('.trending-slide-img');
 let trendingInterval = null;
 
-// র্যান্ডম ইমেজের সাথে সঠিক প্রোডাক্ট অবজেক্ট ম্যাপিং (৩ নম্বর পেজ ওপেন করার জন্য)
 const trendingProductsData = [
   { id: 1, name: 'HANDMADE GAJRA', price: 'Rs. 120.00', orderType: 'meesho', url: 'https://www.meesho.com/s/p/g2q9uz?utm_source=si', images: ['1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg'] },
   { id: 2, name: 'HANDMADE GOPAL DRESSED', price: 'Rs. 220.00', orderType: 'whatsapp', url: '', images: ['2a.jpeg', '2b.jpeg', '2c.jpeg'] },
   { id: 3, name: 'HANDMADE FABRIC PAINTED HANDKERCHIEF (1 Pcs Image)', price: 'Rs. 80.00', orderType: 'meesho', url: 'https://www.meesho.com/s/p/g32381?utm_source=si', images: ['3a.jpeg', '3b.jpeg', '3c.jpeg', '3d.jpeg'] },
   { id: 4, name: 'BEAUTIFUL HANDMADE CHURI (2 Pcs Combo)', price: 'Rs. 90.00', orderType: 'whatsapp', url: '', images: ['4a.jpeg', '4b.jpeg'] },
   { id: 5, name: 'HANDMADE FABRIC PAINTED HANDKERCHIEF (3 Pcs Image)', price: 'Rs. 100.00', orderType: 'meesho', url: 'https://www.meesho.com/s/p/g32380?utm_source=si', images: ['5a.jpeg', '5b.jpeg'] },
-  { id: 1, name: 'HANDMADE GAJRA', price: 'Rs. 120.00', orderType: 'meesho', url: 'https://www.meesho.com/s/p/g2q9uz?utm_source=si', images: ['1a.jpeg', '1b.jpeg', '1c.jpeg', '1d.jpeg'] },
+  { id: 6, name: 'HANDMADE WOOLEN DRESS', price: 'Rs. 443.00', orderType: 'meesho_special', variantStart: 'orange', url: 'https://www.meesho.com/s/p/g3zycg?utm_source=si', images: ['6a.jpeg','6b.jpeg','6c.jpeg','6d.jpeg','6e.jpeg','6f.jpeg','6g.jpeg','6h.jpeg'] },
   { id: 2, name: 'HANDMADE GOPAL DRESSED', price: 'Rs. 220.00', orderType: 'whatsapp', url: '', images: ['2a.jpeg', '2b.jpeg', '2c.jpeg'] },
-  { id: 4, name: 'BEAUTIFUL HANDMADE CHURI (2 Pcs Combo)', price: 'Rs. 90.00', orderType: 'whatsapp', url: '', images: ['4a.jpeg', '4b.jpeg'] }
+  { id: 6, name: 'HANDMADE WOOLEN DRESS', price: 'Rs. 443.00', orderType: 'meesho_special', variantStart: 'yellow', url: 'https://www.meesho.com/s/p/g3zr7l?utm_source=si', images: ['6a.jpeg','6b.jpeg','6c.jpeg','6d.jpeg','6e.jpeg','6f.jpeg','6g.jpeg','6h.jpeg'] }
 ];
 
 function startTrendingSlider() {
     stopTrendingSlider();
-    trendingInterval = setInterval(() => {
-        changeTrendingSlide(1);
-    }, 2500);
+    if(trendingSlides.length > 0) {
+        trendingInterval = setInterval(() => {
+            changeTrendingSlide(1);
+        }, 2500);
+    }
 }
 
 function stopTrendingSlider() {
     if (trendingInterval) clearInterval(trendingInterval);
 }
 
-function changeTrendingSlide(direction) {
+// ফিক্সড ডিরেকশন ফাংশন
+function changeTrendingSlide(dir) {
     if (trendingSlides.length === 0) return;
     trendingSlides[trendingIdx].classList.remove('visible-ts');
-    trendingIdx = (trendingIdx + direction + trendingSlides.length) % trendingSlides.length;
+    trendingIdx = (trendingIdx + dir + trendingSlides.length) % trendingSlides.length;
     trendingSlides[trendingIdx].classList.add('visible-ts');
 }
 
-// ৩ নম্বর পেজ ডাইনামিক কল মেকানিজম
 function clickTrendingProduct() {
     const data = trendingProductsData[trendingIdx];
-    openProductDetail(data.id, data.name, data.price, data.images[0], data.images, data.orderType, data.url);
+    if (data.orderType === 'meesho_special') {
+        openProductDetail(data.id, data.name, data.price, data.images[0], data.images, data.orderType, '');
+        switchWoolenVariant(data.variantStart);
+    } else {
+        openProductDetail(data.id, data.name, data.price, data.images[0], data.images, data.orderType, data.url);
+    }
 }
 
-// টাচ সোয়াইপ লজিক ফর ট্রেন্ডিং ডিসপ্লে
+// টাচ সোয়াইপ লজিক ফর ট্রেন্ডিং ডিসপ্লে (ফিক্সড প্যাসিভ ট্রাস্ট ইঞ্জিন)
 const trendingZone = document.getElementById('trending-swipe-zone');
 if (trendingZone) {
     let tStartX = 0;
     let tEndX = 0;
-    let isTSwiping = false;
 
-    trendingZone.addEventListener('touchstart', (e) => {
+    trendingZone.addEventListener('touchstart', function(e) {
         tStartX = e.touches[0].clientX;
-        isTSwiping = false;
         stopTrendingSlider();
     }, { passive: true });
 
-    trendingZone.addEventListener('touchmove', (e) => {
-        let currentX = e.touches[0].clientX;
-        if (Math.abs(currentX - tStartX) > 10) {
-            isTSwiping = true;
-        }
-    }, { passive: true });
-
-    trendingZone.addEventListener('touchend', (e) => {
+    trendingZone.addEventListener('touchend', function(e) {
         tEndX = e.changedTouches[0].clientX;
         if (tStartX - tEndX > 45) {
             changeTrendingSlide(1);
@@ -1326,8 +1369,8 @@ if (trendingZone) {
 startTrendingSlider();
 
 // UNIVERSAL DYNAMIC SLIDER ENGINE FOR CARDS
-let cardIndices = { 'card-1': 0, 'card-2': 0, 'card-3': 0, 'card-4': 0, 'card-5': 0 };
-let cardIntervals = { 'card-1': null, 'card-2': null, 'card-3': null, 'card-4': null, 'card-5': null };
+let cardIndices = { 'card-1': 0, 'card-2': 0, 'card-3': 0, 'card-4': 0, 'card-5': 0, 'card-6': 0 };
+let cardIntervals = { 'card-1': null, 'card-2': null, 'card-3': null, 'card-4': null, 'card-5': null, 'card-6': null };
 
 function startCardAutoSlide(cardId) {
     stopCardAutoSlide(cardId);
@@ -1351,7 +1394,7 @@ function rotateCardSlide(cardId, direction) {
     slides[cardIndices[cardId]].classList.add('active-slide');
 }
 
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i <= 6; i++) {
     startCardAutoSlide('card-' + i);
 }
 
@@ -1459,6 +1502,12 @@ function showPage(page){
 let detailImagesArray = [];
 let currentDetailIdx = 0;
 let detailSliderInterval = null;
+let currentProductOrderType = "";
+
+const woolenOrangeImages = ['6a.jpeg', '6b.jpeg', '6c.jpeg', '6d.jpeg'];
+const woolenYellowImages = ['6e.jpeg', '6f.jpeg', '6g.jpeg', '6h.jpeg'];
+const woolenOrangeLink = "https://www.meesho.com/s/p/g3zycg?utm_source=si";
+const woolenYellowLink = "https://www.meesho.com/s/p/g3zr7l?utm_source=si";
 
 function openProductDetail(id, name, price, mainImg, imageList, orderType, targetUrl) {
     document.getElementById('detail-name').innerText = name;
@@ -1467,10 +1516,28 @@ function openProductDetail(id, name, price, mainImg, imageList, orderType, targe
     currentActiveProductName = name;
     currentActiveProductPrice = price;
     currentActiveMeeshoUrl = targetUrl;
+    currentProductOrderType = orderType;
     
-    detailImagesArray = imageList;
-    currentDetailIdx = 0;
+    const variantZone = document.getElementById('detail-variant-zone');
+    if (orderType === 'meesho_special') {
+        variantZone.style.display = "flex";
+        detailImagesArray = woolenOrangeImages; 
+        currentActiveMeeshoUrl = woolenOrangeLink;
+        document.getElementById('chip-orange').className = "variant-chip active-orange";
+        document.getElementById('chip-yellow').className = "variant-chip";
+    } else {
+        variantZone.style.display = "none";
+        detailImagesArray = imageList;
+    }
     
+    renderDetailGallery();
+    buildActionButtonArea(orderType);
+    updateDetailView(0);
+    showPage('product-detail');
+    startDetailSlider();
+}
+
+function renderDetailGallery() {
     const galleryContainer = document.getElementById('detail-gallery-container');
     galleryContainer.innerHTML = ""; 
     
@@ -1482,12 +1549,14 @@ function openProductDetail(id, name, price, mainImg, imageList, orderType, targe
         thumbImg.onclick = function() { manualDetailView(idx); };
         galleryContainer.appendChild(thumbImg);
     });
+}
 
+function buildActionButtonArea(orderType) {
     const btnZone = document.getElementById('dynamic-action-btn-zone');
     const switcherText = document.getElementById('meesho-detail-switcher');
     btnZone.innerHTML = ""; 
     
-    if(orderType === 'meesho') {
+    if(orderType === 'meesho' || orderType === 'meesho_special') {
         if(switcherText) switcherText.style.display = "flex";
 
         const meeshoBtn = document.createElement('button');
@@ -1510,9 +1579,33 @@ function openProductDetail(id, name, price, mainImg, imageList, orderType, targe
         };
         btnZone.appendChild(whatsappBtn);
     }
+}
 
+function switchWoolenVariant(color) {
+    stopDetailSlider();
+    const chipOrange = document.getElementById('chip-orange');
+    const chipYellow = document.getElementById('chip-yellow');
+    
+    if (color === 'orange') {
+        chipOrange.className = "variant-chip active-orange";
+        chipYellow.className = "variant-chip";
+        detailImagesArray = woolenOrangeImages;
+        currentActiveMeeshoUrl = woolenOrangeLink;
+    } else {
+        chipOrange.className = "variant-chip";
+        chipYellow.className = "variant-chip active-yellow";
+        detailImagesArray = woolenYellowImages;
+        currentActiveMeeshoUrl = woolenYellowLink;
+    }
+    
+    renderDetailGallery();
     updateDetailView(0);
-    showPage('product-detail');
+    startDetailSlider();
+}
+
+function manualDetailView(idx) {
+    stopDetailSlider();
+    updateDetailView(idx);
     startDetailSlider();
 }
 
@@ -1590,7 +1683,7 @@ function sendWhatsAppOrder() {
 }
 
 window.addEventListener('click', (e) => {
-    if (e.target.closest('.bottom-nav') || e.target.closest('.touch-slider-card') || e.target.closest('.gallery-grid') || e.target.closest('.detail-share-btn') || e.target.closest('.detail-back-bar') || e.target.closest('.meesho-btn') || e.target.closest('.buy-btn') || e.target.closest('.shop-pointer') || e.target.closest('.trending-slider-box')) return;
+    if (e.target.closest('.bottom-nav') || e.target.closest('.touch-slider-card') || e.target.closest('.gallery-grid') || e.target.closest('.detail-share-btn') || e.target.closest('.detail-back-bar') || e.target.closest('.meesho-btn') || e.target.closest('.buy-btn') || e.target.closest('.shop-pointer') || e.target.closest('.trending-slider-box') || e.target.closest('.variant-chip')) return;
     const pulse = document.createElement('div');
     pulse.className = 'touch-pulse';
     pulse.style.left = `${e.clientX}px`;
@@ -1605,4 +1698,3 @@ function comingSoon(){
 </script>
 </body>
 </html>
-
